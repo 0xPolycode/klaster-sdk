@@ -1,0 +1,24 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.14.6",
+    "@wagmi/cli": "^2.1.10",
+    "microbundle": "^0.15.1",
+    "mocha": "^10.4.0",
+    "ts-node": "^10.9.2",
+    "tsup": "^8.0.2"
+  },
+  "dependencies": {
+    "@wagmi/core": "^2.11.4",
+    "axios": "^1.7.2",
+    "viem": "2.15.1"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "tsc && rollup -c",
+    "localPub": "rm -rf ./klaster-sdk-0.1.5.tgz && rm -rf ./dist && npm run build && npm pack"
+  },
+  "main": "dist/index.js",
+  "name": "@klaster/sdk",
+  "version": "0.1.5",
+  "description": ""
+}
