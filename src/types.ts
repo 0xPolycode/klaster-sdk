@@ -76,10 +76,10 @@ export interface ITxUserOp {
 }
 
 export interface RawTransaction {
-  to: string,
-  value: string,
+  to: Address,
+  value: bigint,
   data: string,
-  gasLimit: string,
+  gasLimit: bigint,
 }
 
 export interface MultichainAccount {

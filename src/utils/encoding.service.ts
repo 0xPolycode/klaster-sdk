@@ -15,12 +15,12 @@ export class EncodingService {
     const data = encodeFunctionData({
       abi: smartAccountAbi,
       functionName: "execute",
-      args: [tx.to as any, BigInt(tx.value), tx.data as any],
+      args: [tx.to, tx.value, tx.data as any],
     });
 
     return {
       callData: data,
-      callGasLimit: tx.gasLimit,
+      callGasLimit: tx.gasLimit.toString(),
       chainId: chainId,
       masterWallet: masterWallet,
       salt: salt,
@@ -37,8 +37,8 @@ export class EncodingService {
       abi: smartAccountAbi,
       functionName: "executeBatch",
       args: [
-        txs.map((tx) => tx.to as any),
-        txs.map((tx) => BigInt(tx.value)),
+        txs.map((tx) => tx.to),
+        txs.map((tx) => tx.value),
         txs.map((tx) => tx.data as any),
       ],
     });

@@ -69,7 +69,7 @@ export class KlasterSDK {
   // Fetches the wallet which was set as the master wallet when
   // initializing the SDK. If you wish to change the master wallet, 
   // please call the `changeMasterWallet` function on the SDK object.
-  async getMasterWallet(): Promise<Address> {
+  getMasterWallet(): Address {
     if (this.masterAddress) {
       return this.masterAddress;
     }
@@ -89,7 +89,7 @@ export class KlasterSDK {
   ): Promise<ApiPaymentData> {
     const account = await this.getMultichainAccount();
 
-    const masterWallet = await this.getMasterWallet();
+    const masterWallet = this.getMasterWallet();
     const tokenAddress = resolveToken(token, chainId);
     return {
       chainId: chainId,
@@ -97,10 +97,6 @@ export class KlasterSDK {
       salt: account.salt,
       token: tokenAddress,
     };
-  }
-
-  setActiveAccountSalt(salt: string) {
-    this.activeAccountSalt = salt;
   }
 
   // Fetches a quote for the interchain transaction (iTx). The quote 
@@ -115,7 +111,7 @@ export class KlasterSDK {
 
     const masterWallet = await this.getMasterWallet();
     const userOps = actions.map((action) => {
-      return action.txs.length === 0
+      return action.txs.length === 1
         ? EncodingService.encodeUserOpCall(
             action.txs[0],
             action.chainId,

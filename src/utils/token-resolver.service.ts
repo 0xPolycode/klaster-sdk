@@ -4,7 +4,6 @@ import { optimism, base, mainnet, } from 'viem/chains'
 
 const NATIVE_ASSET_PLACEHOLDER_ADDRESS = '0x0000000000000000000000000000000000000000'
 
-
 export function resolveToken(token: Token, chainId: number): Address {
   switch (chainId) {
     case mainnet.id: return resolveEthereum(token);
@@ -45,6 +44,7 @@ function resolveEthereum(token: Token): Address {
   throw getUnsupportedTokenError(token)
 }
 
+
 function getUnsupportedTokenError(token: Token) {
-  return Error(`Unsupported payment token for network Optimism: ${token}`)
+  return Error(`Unsupported payment token: ${token}`)
 }
