@@ -8,8 +8,8 @@
     "tsup": "^8.0.2"
   },
   "dependencies": {
-    "@wagmi/core": "^2.11.4",
-    "axios": "^1.7.2",
+    "@wagmi/core": "2.11.4",
+    "axios": "1.7.2",
     "viem": "2.15.1"
   },
   "scripts": {
