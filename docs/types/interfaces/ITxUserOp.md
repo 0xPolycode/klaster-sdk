@@ -22,7 +22,7 @@ The identifier of the blockchain network on which the transaction(s) will be exe
 
 #### Defined in
 
-[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L212)
+[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L212)
 
 ***
 
@@ -34,7 +34,7 @@ Optional. The earliest timestamp at which the transaction(s) can be executed.
 
 #### Defined in
 
-[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L214)
+[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L214)
 
 ***
 
@@ -48,7 +48,7 @@ An array of raw transactions to be executed on the specified chain.
 
 #### Defined in
 
-[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L211)
+[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L211)
 
 ***
 
@@ -60,4 +60,4 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 #### Defined in
 
-[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L213)
+[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L213)

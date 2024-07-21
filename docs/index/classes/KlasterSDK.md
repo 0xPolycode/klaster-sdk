@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[index.ts:42](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L42)
+[index.ts:42](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L42)
 
 ## Properties
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[index.ts:38](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L38)
+[index.ts:38](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L38)
 
 ***
 
@@ -42,7 +42,7 @@
 
 #### Defined in
 
-[index.ts:40](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L40)
+[index.ts:40](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L40)
 
 ## Methods
 
@@ -71,7 +71,7 @@ function to sign the transaction.
 
 #### Defined in
 
-[index.ts:167](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L167)
+[index.ts:167](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L167)
 
 ***
 
@@ -89,7 +89,7 @@ function to sign the transaction.
 
 #### Defined in
 
-[index.ts:57](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L57)
+[index.ts:57](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L57)
 
 ***
 
@@ -107,7 +107,7 @@ function to sign the transaction.
 
 #### Defined in
 
-[index.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L50)
+[index.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L50)
 
 ***
 
@@ -125,7 +125,7 @@ function to sign the transaction.
 
 #### Defined in
 
-[index.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L86)
+[index.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L86)
 
 ***
 
@@ -172,7 +172,7 @@ const executeResponse = await execute(quoteResponse, signedHash);
 
 #### Defined in
 
-[index.ts:152](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L152)
+[index.ts:152](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L152)
 
 ***
 
@@ -186,7 +186,7 @@ const executeResponse = await execute(quoteResponse, signedHash);
 
 #### Defined in
 
-[index.ts:68](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L68)
+[index.ts:68](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L68)
 
 ***
 
@@ -209,7 +209,7 @@ The full Interchain Tranasaction object
 
 #### Defined in
 
-[index.ts:105](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L105)
+[index.ts:105](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L105)
 
 ***
 
@@ -246,4 +246,4 @@ executes the desired actions across multiple blockchains.
 
 #### Defined in
 
-[index.ts:186](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L186)
+[index.ts:186](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L186)

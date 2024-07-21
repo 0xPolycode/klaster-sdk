@@ -22,7 +22,7 @@ The identifier of the blockchain network on which the userOp is executed.
 
 #### Defined in
 
-[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L112)
+[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L112)
 
 ***
 
@@ -34,7 +34,7 @@ The callData of the executed action, representing the actual operation performed
 
 #### Defined in
 
-[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L115)
+[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L115)
 
 ***
 
@@ -51,7 +51,7 @@ The current status of the UserOp execution:
 
 #### Defined in
 
-[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L114)
+[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L114)
 
 ***
 
@@ -63,7 +63,7 @@ The earliest timestamp at which the userOp will be executed on the target blockc
 
 #### Defined in
 
-[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L110)
+[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L110)
 
 ***
 
@@ -75,7 +75,7 @@ The maximum gas limit allowed for the execution of this userOp.
 
 #### Defined in
 
-[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L113)
+[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L113)
 
 ***
 
@@ -87,7 +87,7 @@ The latest timestamp by which the userOp will be executed on the target blockcha
 
 #### Defined in
 
-[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L111)
+[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L111)
 
 ***
 
@@ -99,7 +99,7 @@ The full ERC-4337 UserOperation object that was executed.
 
 #### Defined in
 
-[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L108)
+[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L108)
 
 ***
 
@@ -111,4 +111,4 @@ The hash of the userOp, serving as a unique identifier for the operation.
 
 #### Defined in
 
-[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L109)
+[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L109)

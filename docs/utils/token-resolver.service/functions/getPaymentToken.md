@@ -1,8 +1,8 @@
-[**klaster-sdk**](../../README.md) • **Docs**
+[**klaster-sdk**](../../../README.md) • **Docs**
 
 ***
 
-[klaster-sdk](../../README.md) / [index](../README.md) / getPaymentToken
+[klaster-sdk](../../../README.md) / [utils/token-resolver.service](../README.md) / getPaymentToken
 
 # Function: getPaymentToken()
 
@@ -42,4 +42,4 @@ console.log(usdcAddress); // '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
 
 ## Defined in
 
-[utils/token-resolver.service.ts:222](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/token-resolver.service.ts#L222)
+[utils/token-resolver.service.ts:222](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/token-resolver.service.ts#L222)

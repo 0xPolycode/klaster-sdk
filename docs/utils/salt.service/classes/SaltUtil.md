@@ -1,8 +1,8 @@
-[**klaster-sdk**](../../README.md) • **Docs**
+[**klaster-sdk**](../../../README.md) • **Docs**
 
 ***
 
-[klaster-sdk](../../README.md) / [index](../README.md) / SaltUtil
+[klaster-sdk](../../../README.md) / [utils/salt.service](../README.md) / SaltUtil
 
 # Class: SaltUtil
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[utils/salt.service.ts:6](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/salt.service.ts#L6)
+[utils/salt.service.ts:6](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/salt.service.ts#L6)
 
 ***
 
@@ -50,7 +50,7 @@
 
 #### Defined in
 
-[utils/salt.service.ts:10](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/salt.service.ts#L10)
+[utils/salt.service.ts:10](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/salt.service.ts#L10)
 
 ***
 
@@ -64,4 +64,4 @@
 
 #### Defined in
 
-[utils/salt.service.ts:2](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/salt.service.ts#L2)
+[utils/salt.service.ts:2](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/salt.service.ts#L2)

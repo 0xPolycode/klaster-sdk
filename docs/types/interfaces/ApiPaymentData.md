@@ -24,7 +24,7 @@ blockchain where the payment transaction will occur.
 
 #### Defined in
 
-[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L52)
+[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L52)
 
 ***
 
@@ -37,7 +37,7 @@ the Klaster Multichain Smart Account is derived.
 
 #### Defined in
 
-[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L49)
+[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L49)
 
 ***
 
@@ -51,7 +51,7 @@ addresses for the same EOA.
 
 #### Defined in
 
-[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L50)
+[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L50)
 
 ***
 
@@ -64,4 +64,4 @@ the gas cost and transaction fees associated with the user operation.
 
 #### Defined in
 
-[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L51)
+[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L51)

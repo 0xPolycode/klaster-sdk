@@ -1,12 +1,12 @@
-[**klaster-sdk**](../../README.md) • **Docs**
+[**klaster-sdk**](../../../README.md) • **Docs**
 
 ***
 
-[klaster-sdk](../../README.md) / [index](../README.md) / buildTransferERC20FromEoaTx
+[klaster-sdk](../../../README.md) / [utils/utils.service](../README.md) / buildTransferERC20FromEoaTx
 
 # Function: buildTransferERC20FromEoaTx()
 
-> **buildTransferERC20FromEoaTx**(`params`): [`RawTransaction`](../../types/interfaces/RawTransaction.md)
+> **buildTransferERC20FromEoaTx**(`params`): [`RawTransaction`](../../../types/interfaces/RawTransaction.md)
 
 Builds a transaction to transfer ERC20 tokens from an Externally Owned Account (EOA)
 to another account, typically a smart contract account.
@@ -39,7 +39,7 @@ The address of the ERC20 token contract.
 
 ## Returns
 
-[`RawTransaction`](../../types/interfaces/RawTransaction.md)
+[`RawTransaction`](../../../types/interfaces/RawTransaction.md)
 
 A RawTransaction object ready to be signed and broadcasted.
   The object includes:
@@ -63,4 +63,4 @@ const rawTx = buildTransferERC20FromEoaTx(txParams);
 
 ## Defined in
 
-[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/utils.service.ts#L127)
+[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/utils.service.ts#L127)

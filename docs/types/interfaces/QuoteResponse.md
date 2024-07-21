@@ -23,7 +23,7 @@ This commitment guarantees the execution of the quoted interchain transaction.
 
 #### Defined in
 
-[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L138)
+[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L138)
 
 ***
 
@@ -36,7 +36,7 @@ as a unique identifier for the entire interchain operation.
 
 #### Defined in
 
-[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L137)
+[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L137)
 
 ***
 
@@ -49,7 +49,7 @@ committed itself to executing the interchain transaction.
 
 #### Defined in
 
-[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L139)
+[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L139)
 
 ***
 
@@ -62,7 +62,7 @@ transaction, including the token to be used and the chain on which the payment w
 
 #### Defined in
 
-[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L140)
+[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L140)
 
 ***
 
@@ -76,4 +76,4 @@ represents a specific action on a particular blockchain within the interchain tr
 
 #### Defined in
 
-[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L141)
+[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L141)

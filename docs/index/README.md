@@ -10,25 +10,15 @@
 
 ### Classes
 
-- [EncodingService](classes/EncodingService.md)
 - [KlasterSDK](classes/KlasterSDK.md)
-- [SaltUtil](classes/SaltUtil.md)
 
 ### Type Aliases
 
-- [ChainTokenPair](type-aliases/ChainTokenPair.md)
 - [Config](type-aliases/Config.md)
 
 ### Functions
 
-- [buildTransferERC20FromEoaTx](functions/buildTransferERC20FromEoaTx.md)
-- [encodeAction](functions/encodeAction.md)
-- [encodeItx](functions/encodeItx.md)
-- [encodeTx](functions/encodeTx.md)
-- [fetchInjectedAddress](functions/fetchInjectedAddress.md)
-- [getPaymentToken](functions/getPaymentToken.md)
 - [initKlaster](functions/initKlaster.md)
-- [signWithInjectedWallet](functions/signWithInjectedWallet.md)
 
 ## References
 
@@ -44,9 +34,21 @@ Re-exports [ApiUserOp](../types/interfaces/ApiUserOp.md)
 
 ***
 
+### ChainTokenPair
+
+Re-exports [ChainTokenPair](../utils/token-resolver.service/type-aliases/ChainTokenPair.md)
+
+***
+
 ### ERC4337UserOp
 
 Re-exports [ERC4337UserOp](../types/interfaces/ERC4337UserOp.md)
+
+***
+
+### EncodingService
+
+Re-exports [EncodingService](../utils/encoding.service/classes/EncodingService.md)
 
 ***
 
@@ -98,6 +100,54 @@ Re-exports [RawTransaction](../types/interfaces/RawTransaction.md)
 
 ***
 
+### SaltUtil
+
+Re-exports [SaltUtil](../utils/salt.service/classes/SaltUtil.md)
+
+***
+
 ### SupportedPaymentTokenInfo
 
 Re-exports [SupportedPaymentTokenInfo](../types/interfaces/SupportedPaymentTokenInfo.md)
+
+***
+
+### buildTransferERC20FromEoaTx
+
+Re-exports [buildTransferERC20FromEoaTx](../utils/utils.service/functions/buildTransferERC20FromEoaTx.md)
+
+***
+
+### encodeAction
+
+Re-exports [encodeAction](../utils/itx.service/functions/encodeAction.md)
+
+***
+
+### encodeItx
+
+Re-exports [encodeItx](../utils/itx.service/functions/encodeItx.md)
+
+***
+
+### encodeTx
+
+Re-exports [encodeTx](../utils/itx.service/functions/encodeTx.md)
+
+***
+
+### fetchInjectedAddress
+
+Re-exports [fetchInjectedAddress](../utils/utils.service/functions/fetchInjectedAddress.md)
+
+***
+
+### getPaymentToken
+
+Re-exports [getPaymentToken](../utils/token-resolver.service/functions/getPaymentToken.md)
+
+***
+
+### signWithInjectedWallet
+
+Re-exports [signWithInjectedWallet](../utils/utils.service/functions/signWithInjectedWallet.md)

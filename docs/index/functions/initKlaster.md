@@ -18,4 +18,4 @@
 
 ## Defined in
 
-[index.ts:32](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/index.ts#L32)
+[index.ts:32](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/index.ts#L32)

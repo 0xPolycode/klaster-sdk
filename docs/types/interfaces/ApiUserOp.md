@@ -23,7 +23,7 @@ This represents the actual operation the user wants to perform.
 
 #### Defined in
 
-[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L25)
+[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L25)
 
 ***
 
@@ -37,7 +37,7 @@ account abstraction.
 
 #### Defined in
 
-[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L26)
+[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L26)
 
 ***
 
@@ -50,7 +50,7 @@ This determines which network the operation will be sent to.
 
 #### Defined in
 
-[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L27)
+[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L27)
 
 ***
 
@@ -63,7 +63,7 @@ the Klaster Multichain Smart Account is derived.
 
 #### Defined in
 
-[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L23)
+[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L23)
 
 ***
 
@@ -77,4 +77,4 @@ addresses for the same EOA.
 
 #### Defined in
 
-[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L24)
+[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L24)

@@ -22,7 +22,7 @@ the execution of the interchain transaction.
 
 #### Defined in
 
-[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L183)
+[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L183)
 
 ***
 
@@ -35,7 +35,7 @@ for the interchain transaction.
 
 #### Defined in
 
-[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L181)
+[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L181)
 
 ***
 
@@ -47,7 +47,7 @@ The address of the Klaster node that is responsible for executing the interchain
 
 #### Defined in
 
-[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L182)
+[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L182)
 
 ***
 
@@ -70,7 +70,7 @@ used and the actual amount quoted for the execution.
 
 #### Defined in
 
-[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L184)
+[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L184)
 
 ***
 
@@ -83,4 +83,4 @@ details of a user operation executed as part of this interchain transaction acro
 
 #### Defined in
 
-[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L188)
+[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L188)

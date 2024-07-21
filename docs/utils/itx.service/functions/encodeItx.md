@@ -1,12 +1,12 @@
-[**klaster-sdk**](../../README.md) • **Docs**
+[**klaster-sdk**](../../../README.md) • **Docs**
 
 ***
 
-[klaster-sdk](../../README.md) / [index](../README.md) / encodeItx
+[klaster-sdk](../../../README.md) / [utils/itx.service](../README.md) / encodeItx
 
 # Function: encodeItx()
 
-> **encodeItx**(`itx`): [`InterchainTransaction`](../../types/interfaces/InterchainTransaction.md)
+> **encodeItx**(`itx`): [`InterchainTransaction`](../../../types/interfaces/InterchainTransaction.md)
 
 A syntactic helper for creating InterchainTransaction objects in the Klaster SDK.
 
@@ -16,13 +16,13 @@ readable way of creating InterchainTransaction objects.
 
 ## Parameters
 
-• **itx**: [`InterchainTransaction`](../../types/interfaces/InterchainTransaction.md)
+• **itx**: [`InterchainTransaction`](../../../types/interfaces/InterchainTransaction.md)
 
 The InterchainTransaction object to be "encoded".
 
 ## Returns
 
-[`InterchainTransaction`](../../types/interfaces/InterchainTransaction.md)
+[`InterchainTransaction`](../../../types/interfaces/InterchainTransaction.md)
 
 The same InterchainTransaction object, unchanged.
 
@@ -37,4 +37,4 @@ const iTx = encodeItx({ ... });
 
 ## Defined in
 
-[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/utils/itx.service.ts#L19)
+[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/utils/itx.service.ts#L19)

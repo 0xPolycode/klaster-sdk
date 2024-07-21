@@ -22,7 +22,7 @@
 
 #### Defined in
 
-[node.service.ts:15](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L15)
+[node.service.ts:15](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L15)
 
 ## Properties
 
@@ -32,7 +32,7 @@
 
 #### Defined in
 
-[node.service.ts:13](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L13)
+[node.service.ts:13](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L13)
 
 ## Methods
 
@@ -52,7 +52,7 @@
 
 #### Defined in
 
-[node.service.ts:41](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L41)
+[node.service.ts:41](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L41)
 
 ***
 
@@ -70,7 +70,7 @@
 
 #### Defined in
 
-[node.service.ts:60](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L60)
+[node.service.ts:60](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L60)
 
 ***
 
@@ -90,7 +90,7 @@
 
 #### Defined in
 
-[node.service.ts:22](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L22)
+[node.service.ts:22](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L22)
 
 ***
 
@@ -110,4 +110,4 @@
 
 #### Defined in
 
-[node.service.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/node.service.ts#L51)
+[node.service.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/node.service.ts#L51)

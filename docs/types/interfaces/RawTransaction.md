@@ -24,7 +24,7 @@ The input data of the transaction, typically the encoded function
 
 #### Defined in
 
-[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L236)
+[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L236)
 
 ***
 
@@ -37,7 +37,7 @@ The maximum amount of gas that can be used for executing
 
 #### Defined in
 
-[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L237)
+[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L237)
 
 ***
 
@@ -50,7 +50,7 @@ The recipient address of the transaction. This can be a contract
 
 #### Defined in
 
-[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L234)
+[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L234)
 
 ***
 
@@ -63,4 +63,4 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 #### Defined in
 
-[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L235)
+[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L235)

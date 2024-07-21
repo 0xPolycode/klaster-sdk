@@ -22,7 +22,7 @@ The data to be passed to the sender during the main execution call.
 
 #### Defined in
 
-[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L77)
+[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L77)
 
 ***
 
@@ -34,7 +34,7 @@ The gas limit for the main execution call.
 
 #### Defined in
 
-[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L78)
+[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L78)
 
 ***
 
@@ -46,7 +46,7 @@ The initialization code for the account if it hasn't been deployed yet. Empty st
 
 #### Defined in
 
-[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L76)
+[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L76)
 
 ***
 
@@ -58,7 +58,7 @@ The maximum total fee per gas the sender is willing to pay (including the priori
 
 #### Defined in
 
-[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L81)
+[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L81)
 
 ***
 
@@ -70,7 +70,7 @@ The maximum priority fee per gas the sender is willing to pay.
 
 #### Defined in
 
-[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L82)
+[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L82)
 
 ***
 
@@ -82,7 +82,7 @@ A unique identifier to prevent replay attacks, typically managed by the account 
 
 #### Defined in
 
-[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L75)
+[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L75)
 
 ***
 
@@ -94,7 +94,7 @@ The address of the paymaster sponsoring the transaction, followed by extra data 
 
 #### Defined in
 
-[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L83)
+[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L83)
 
 ***
 
@@ -106,7 +106,7 @@ The amount of gas to compensate the bundler for pre-verification execution and c
 
 #### Defined in
 
-[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L80)
+[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L80)
 
 ***
 
@@ -118,7 +118,7 @@ The address of the smart contract account that will make the transaction.
 
 #### Defined in
 
-[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L74)
+[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L74)
 
 ***
 
@@ -130,7 +130,7 @@ The signature over the entire UserOperation, to be validated during verification
 
 #### Defined in
 
-[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L84)
+[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L84)
 
 ***
 
@@ -142,4 +142,4 @@ The gas limit for the verification step.
 
 #### Defined in
 
-[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/3cf08fc5b4200ded4c039f2f5c07003d95710139/src/types.ts#L79)
+[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/df98c9e368e7c318a0e9124db84ae28b572c7361/src/types.ts#L79)
