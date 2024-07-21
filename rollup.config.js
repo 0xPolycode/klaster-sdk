@@ -1,17 +1,17 @@
-import dts from 'rollup-plugin-dts';
+import dts from "rollup-plugin-dts";
 
 export default [
   {
-    input: 'dist/index.js',
+    input: "dist/index.js",
     output: {
-        file: 'index.js'
+      file: "index.js",
     },
   },
   {
-    input: 'dist/index.d.ts',
+    input: "dist/index.d.ts",
     output: {
-        file: 'index.d.ts'
+      file: "index.d.ts",
     },
-    plugins: [dts()]
-}
-] 
+    plugins: [dts()],
+  },
+];

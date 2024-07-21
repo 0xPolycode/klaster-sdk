@@ -1,7 +1,4 @@
-import {
-  Address,
-  encodeFunctionData,
-} from "viem";
+import { Address, encodeFunctionData } from "viem";
 import { ApiUserOp, RawTransaction } from "../types";
 import { smartAccountAbi } from "../generated";
 
@@ -10,7 +7,7 @@ export class EncodingService {
     tx: RawTransaction,
     chainId: number,
     masterWallet: Address,
-    salt: string
+    salt: string,
   ): ApiUserOp {
     const data = encodeFunctionData({
       abi: smartAccountAbi,
@@ -31,7 +28,7 @@ export class EncodingService {
     txs: RawTransaction[],
     chainId: number,
     masterWallet: Address,
-    salt: string
+    salt: string,
   ): ApiUserOp {
     const data = encodeFunctionData({
       abi: smartAccountAbi,

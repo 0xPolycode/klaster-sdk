@@ -1,25 +1,43 @@
 {
   "devDependencies": {
-    "@types/node": "^20.14.6",
-    "@wagmi/cli": "^2.1.10",
-    "microbundle": "^0.15.1",
-    "mocha": "^10.4.0",
-    "ts-node": "^10.9.2",
-    "tsup": "^8.0.2"
+    "@eslint/js": "9.7.0",
+    "@stylistic/eslint-plugin-ts": "2.3.0",
+    "@types/eslint__js": "8.42.3",
+    "@types/jest": "^29.5.12",
+    "@types/node": "20.14.6",
+    "@wagmi/cli": "2.1.10",
+    "eslint": "8.57.0",
+    "jest": "^29.7.0",
+    "microbundle": "0.15.1",
+    "mocha": "10.4.0",
+    "prettier": "3.3.2",
+    "ts-jest": "^29.2.2",
+    "ts-node": "10.9.2",
+    "tsup": "8.0.2",
+    "typedoc": "^0.26.5",
+    "typedoc-github-theme": "^0.1.1",
+    "typedoc-gitlab-wiki-theme": "^2.0.1",
+    "typedoc-material-theme": "^1.1.0",
+    "typedoc-plugin-markdown": "^4.2.1",
+    "typescript": "5.5.3",
+    "typescript-eslint": "7.16.0"
   },
   "dependencies": {
-    "@wagmi/core": "2.11.4",
+    "@wagmi/core": "2.12.2",
     "axios": "1.7.2",
     "viem": "2.15.1"
   },
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "rm -rf ./dist && tsc",
-    "localPub": "rm -rf ./klaster-sdk-0.1.5.tgz && rm -rf ./dist && npm run build && npm pack"
+    "localPub": "rm -rf ./klaster-sdk-0.1.5.tgz && rm -rf ./dist && npm run build && npm pack",
+    "lint": "eslint .",
+    "test": "jest"
   },
   "main": "dist/index.js",
   "name": "klaster-sdk",
-  "version": "0.1.5",
+  "version": "0.3.0",
+  "type": "module",
   "description": "An SDK for interacting with the Klaster Protocol",
   "author": {
     "email": "mislav@polycode.sh",

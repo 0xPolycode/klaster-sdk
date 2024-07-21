@@ -1,14 +1,13 @@
 export class SaltUtil {
-
   public static firstAccount() {
-    return "0"
+    return "0";
   }
 
   public static accountAt(i: number) {
-    return i.toString()
+    return i.toString();
   }
 
   public static customAccount(salt: string) {
-    return salt
+    return salt;
   }
 }

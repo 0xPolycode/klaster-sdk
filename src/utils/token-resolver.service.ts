@@ -1,50 +1,224 @@
-import { Address } from "viem";
-import { Token } from "..";
-import { optimism, base, mainnet, } from 'viem/chains'
+import axios from 'axios';
 
-const NATIVE_ASSET_PLACEHOLDER_ADDRESS = '0x0000000000000000000000000000000000000000'
-
-export function resolveToken(token: Token, chainId: number): Address {
-  switch (chainId) {
-    case mainnet.id: return resolveEthereum(token);
-    case optimism.id: return resolveOptimism(token);
-    case base.id: return resolveBase(token)
-  }
-  throw Error(`Unsupported chain ${chainId}`)
+interface TokenInfo {
+  name: string;
+  address: string;
+  symbol: string;
+  decimals: number;
 }
 
-function resolveOptimism(token: Token): Address { 
-  switch (token) {
-    case 'usdc': return '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85';
-    case 'usdt': return '0x94b008aA00579c1307B0EF2c499aD98a8ce58e58';
-    case 'eth': return NATIVE_ASSET_PLACEHOLDER_ADDRESS;
-    case 'link': return '0x350a791Bfc2C21F9Ed5d10980Dad2e2638ffa7f6';
-    case 'steth': return '0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb'
-  }
-  throw getUnsupportedTokenError(token)
+interface ChainInfo {
+  chainId: string;
+  name: string;
 }
 
-function resolveBase(token: Token): Address {
-  switch(token) {
-    case 'usdc': return '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
-    case 'usdt': return '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913';
-    case 'eth': return NATIVE_ASSET_PLACEHOLDER_ADDRESS;
-    case 'link': return '0x88Fb150BDc53A65fe94Dea0c9BA0a6dAf8C6e196'
-  }
-  throw getUnsupportedTokenError(token)
+interface ApiResponse {
+  version: string;
+  node: string;
+  supported_chains: ChainInfo[];
+  supported_gas_tokens: {
+    chainId: string;
+    paymentTokens: TokenInfo[];
+  }[];
 }
 
-function resolveEthereum(token: Token): Address {
-  switch(token) {
-    case 'eth': return NATIVE_ASSET_PLACEHOLDER_ADDRESS;
-    case 'usdc': return '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48';
-    case 'usdt': return '0xdAC17F958D2ee523a2206206994597C13D831ec7';
-    case 'link': return '0x514910771AF9Ca656af840dff83E8264EcF986CA';
+/** Represents a chain name and token symbol pair */
+type ChainConstrainer =
+  | 'ethereum'
+  | 'optimism'
+  | 'sepolia'
+  | 'polygon'
+  | 'arbitrum-one'
+  | 'arbitrum-sepolia'
+  | 'avalanche-c-chain'
+  | 'scroll'
+  | 'bnb-smart-chain'
+  | 'base';
+  
+type TokenConstrainer =
+  | 'eth'
+  | 'weth'
+  | 'link'
+  | 'usdc'
+  | 'wsteth'
+  | 'usdt'
+  | 'matic'
+  | 'wmatic'
+  | 'stmatic'
+  | 'avax'
+  | 'wavax'
+  | 'bnb'
+  | 'wbnb'
+  | 'axlusdc'
+  | 'crusdc'
+  | 'bsc-usd';
+
+export type ChainTokenPair = `${ChainConstrainer}-${TokenConstrainer}`;
+
+/**
+ * Service class for managing chain and token information
+ */
+class ChainTokenService {
+  private data: ApiResponse | null = null;
+  private chainMap: Map<string, Map<string, TokenInfo>> = new Map();
+  private chainNameToId: Map<string, string> = new Map();
+
+  /**
+   * Creates an instance of ChainTokenService.
+   * @param {string} apiUrl - The URL of the API endpoint
+   */
+  constructor(private apiUrl: string = 'https://klaster-node.polycode.sh/info') {}
+
+  /**
+   * Initializes the service by fetching and processing data from the API
+   * @returns {Promise<void>}
+   * @throws {Error} If there's an error fetching or processing the data
+   */
+  async init(): Promise<void> {
+    try {
+      const response = await axios.get<ApiResponse>(this.apiUrl);
+      this.data = response.data;
+      this.processData();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
   }
-  throw getUnsupportedTokenError(token)
+
+  /**
+   * Processes the fetched data and populates internal data structures
+   * @private
+   */
+  private processData(): void {
+    if (!this.data) return;
+
+    this.data.supported_chains.forEach(chain => {
+      const camelCaseName = this.toCamelCase(chain.name);
+      this.chainNameToId.set(camelCaseName, chain.chainId);
+    });
+
+    this.data.supported_gas_tokens.forEach(chain => {
+      const tokenMap = new Map<string, TokenInfo>();
+      chain.paymentTokens.forEach(token => {
+        tokenMap.set(token.symbol.toLowerCase(), token);
+      });
+      this.chainMap.set(chain.chainId, tokenMap);
+    });
+  }
+
+  /**
+   * Converts a string to camelCase
+   * @param {string} str - The string to convert
+   * @returns {string} The camelCase version of the input string
+   * @private
+   */
+  private toCamelCase(str: string): string {
+    return str.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (_, chr) => chr.toUpperCase());
+  }
+
+  /**
+   * Gets the chain ID for a given chain identifier (name or ID)
+   * @param {string} chainIdentifier - The chain name or ID
+   * @returns {string | undefined} The chain ID, or undefined if not found
+   * @private
+   */
+  private getChainId(chainIdentifier: string): string | undefined {
+    if (this.chainMap.has(chainIdentifier)) {
+      return chainIdentifier; // It's already a chain ID
+    }
+    return this.chainNameToId.get(this.toCamelCase(chainIdentifier));
+  }
+
+  /**
+   * Gets the token address for a given chain and token symbol
+   * @param {string} chainIdentifier - The chain name or ID
+   * @param {string} tokenSymbol - The token symbol
+   * @returns {string | undefined} The token address, or undefined if not found
+   */
+  getTokenAddress(chainIdentifier: string, tokenSymbol: string): string | undefined {
+    const chainId = this.getChainId(chainIdentifier);
+    if (!chainId) return undefined;
+
+    const chainTokens = this.chainMap.get(chainId);
+    if (!chainTokens) return undefined;
+
+    const token = chainTokens.get(tokenSymbol.toLowerCase());
+    return token?.address;
+  }
+
+  /**
+   * Gets the token address for a given chain-token pair
+   * @param {ChainTokenPair} pair - The chain-token pair
+   * @returns {string | undefined} The token address, or undefined if not found
+   */
+  getTokenAddressByPair(pair: ChainTokenPair): string | undefined {
+    const [chainName, tokenSymbol] = pair.split('-');
+    return this.getTokenAddress(chainName, tokenSymbol);
+  }
+
+  /**
+   * Gets all supported chains
+   * @returns {ChainInfo[]} An array of supported chains
+   */
+  getSupportedChains(): ChainInfo[] {
+    return this.data?.supported_chains || [];
+  }
+
+  /**
+   * Gets all supported tokens for a given chain
+   * @param {string} chainIdentifier - The chain name or ID
+   * @returns {TokenInfo[] | undefined} An array of supported tokens, or undefined if the chain is not found
+   */
+  getSupportedTokens(chainIdentifier: string): TokenInfo[] | undefined {
+    const chainId = this.getChainId(chainIdentifier);
+    if (!chainId) return undefined;
+
+    return this.data?.supported_gas_tokens.find(chain => chain.chainId === chainId)?.paymentTokens;
+  }
+
+  /**
+   * Gets all valid chain-token pairs
+   * @returns {ChainTokenPair[]} An array of all valid chain-token pairs
+   */
+  getChainTokenPairs(): ChainTokenPair[] {
+    const pairs: ChainTokenPair[] = [];
+    this.data?.supported_gas_tokens.forEach(chain => {
+      const chainInfo = this.data?.supported_chains.find(c => c.chainId === chain.chainId);
+      if (chainInfo) {
+        const chainName = this.toCamelCase(chainInfo.name);
+        chain.paymentTokens.forEach(token => {
+          pairs.push(`${chainName}-${token.symbol.toLowerCase()}` as ChainTokenPair);
+        });
+      }
+    });
+    return pairs;
+  }
 }
 
+const service = new ChainTokenService()
+service.init()
 
-function getUnsupportedTokenError(token: Token) {
-  return Error(`Unsupported payment token: ${token}`)
+/**
+ * Retrieves the payment token address for a given chain-token pair.
+ * 
+ * This function uses the ChainTokenService to look up the token address
+ * based on the provided chain-token pair.
+ * 
+ * @param {ChainTokenPair} chainTokenPair - A string representing the chain and token,
+ *                                          in the format "chainName-tokenSymbol".
+ *                                          For example: "ethereum-usdc" or "arbitrumOne-link".
+ * 
+ * @returns {string | undefined} The address of the payment token if found,
+ *                               or undefined if the token is not found for the given chain.
+ * 
+ * @throws {Error} May throw an error if the ChainTokenService encounters issues
+ *                 (e.g., network errors when fetching data).
+ * 
+ * @example
+ * const usdcAddress = getPaymentToken('ethereum-usdc');
+ * console.log(usdcAddress); // '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
+ * 
+ */
+export function getPaymentToken(chainTokenPair: ChainTokenPair) {
+  return service.getTokenAddressByPair(chainTokenPair);
 }

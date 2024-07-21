@@ -1,8 +1,11 @@
 import { Address } from "viem";
-import { ApiPaymentData, ApiUserOp, ItxStatusResponse, QuoteResponse } from "./types";
-import axios, {
-  AxiosInstance,
-} from "axios";
+import {
+  ApiPaymentData,
+  ApiUserOp,
+  ItxStatusResponse,
+  QuoteResponse,
+} from "./types";
+import axios, { AxiosInstance } from "axios";
 import { parseKlasterNodeError } from "./utils/error.service";
 
 export class KlasterNodeService {
@@ -31,7 +34,7 @@ export class KlasterNodeService {
 
       return response.data as QuoteResponse;
     } catch (e: any) {
-      throw Error(parseKlasterNodeError(e))
+      throw Error(parseKlasterNodeError(e));
     }
   }
 
@@ -50,16 +53,16 @@ export class KlasterNodeService {
       const response = await this.client.get(`address/${masterWallet}/${salt}`);
       return response.data.wallet;
     } catch (e: any) {
-      throw Error(parseKlasterNodeError(e))
+      throw Error(parseKlasterNodeError(e));
     }
   }
 
   async getItxStatus(hash: string): Promise<ItxStatusResponse> {
     try {
-      const response = await this.client.get(`explorer/${hash}`)
-      return response.data as ItxStatusResponse
-    } catch(e) {
-      throw Error(parseKlasterNodeError(e))
+      const response = await this.client.get(`explorer/${hash}`);
+      return response.data as ItxStatusResponse;
+    } catch (e) {
+      throw Error(parseKlasterNodeError(e));
     }
   }
 }
