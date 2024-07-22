@@ -77,7 +77,7 @@ const userOp = EncodingService.encodeBatchCall(
 
 ###### Defined in
 
-[utils/encoding.service.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/encoding.service.ts#L80)
+[utils/encoding.service.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/encoding.service.ts#L80)
 
 ##### encodeUserOpCall()
 
@@ -125,7 +125,7 @@ const userOp = EncodingService.encodeUserOpCall(
 
 ###### Defined in
 
-[utils/encoding.service.ts:35](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/encoding.service.ts#L35)
+[utils/encoding.service.ts:35](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/encoding.service.ts#L35)
 
 ***
 
@@ -152,7 +152,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L80)
+[index.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L80)
 
 #### Properties
 
@@ -162,7 +162,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L76)
+[index.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L76)
 
 ##### masterAddress
 
@@ -170,7 +170,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L78)
+[index.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L78)
 
 #### Methods
 
@@ -247,7 +247,7 @@ try {
 
 ###### Defined in
 
-[index.ts:397](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L397)
+[index.ts:397](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L397)
 
 ##### changeAccountSalt()
 
@@ -293,7 +293,7 @@ For more information on ERC4337 and account abstraction, visit:
 
 ###### Defined in
 
-[index.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L138)
+[index.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L138)
 
 ##### changeMasterAddress()
 
@@ -341,7 +341,7 @@ For more information on ERC4337 and account abstraction, visit:
 
 ###### Defined in
 
-[index.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L109)
+[index.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L109)
 
 ##### encodeTxFee()
 
@@ -404,7 +404,7 @@ Make sure these are set correctly before calling this function.
 
 ###### Defined in
 
-[index.ts:227](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L227)
+[index.ts:227](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L227)
 
 ##### execute()
 
@@ -466,7 +466,7 @@ try {
 
 ###### Defined in
 
-[index.ts:342](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L342)
+[index.ts:342](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L342)
 
 ##### getMultichainAccount()
 
@@ -523,7 +523,7 @@ before calling this function.
 
 ###### Defined in
 
-[index.ts:178](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L178)
+[index.ts:178](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L178)
 
 ##### getQuote()
 
@@ -593,7 +593,7 @@ This function uses the current values of `masterAddress` and `activeAccountSalt`
 
 ###### Defined in
 
-[index.ts:282](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L282)
+[index.ts:282](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L282)
 
 ##### transferAndExecute()
 
@@ -686,7 +686,7 @@ const result = await klasterSDK.transferAndExecute({
 
 ###### Defined in
 
-[index.ts:466](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L466)
+[index.ts:466](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L466)
 
 ***
 
@@ -738,7 +738,7 @@ console.log(thirdAccountSalt); // Outputs: "2"
 
 ###### Defined in
 
-[utils/salt.service.ts:33](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/salt.service.ts#L33)
+[utils/salt.service.ts:33](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/salt.service.ts#L33)
 
 ##### customAccount()
 
@@ -774,7 +774,7 @@ Custom salts should be securely generated and managed to maintain account securi
 
 ###### Defined in
 
-[utils/salt.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/salt.service.ts#L53)
+[utils/salt.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/salt.service.ts#L53)
 
 ##### firstAccount()
 
@@ -797,7 +797,7 @@ console.log(firstAccountSalt); // Outputs: "0"
 
 ###### Defined in
 
-[utils/salt.service.ts:17](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/salt.service.ts#L17)
+[utils/salt.service.ts:17](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/salt.service.ts#L17)
 
 ## Interfaces
 
@@ -821,7 +821,7 @@ blockchain where the payment transaction will occur.
 
 ###### Defined in
 
-[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L52)
+[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L52)
 
 ##### masterWallet
 
@@ -832,7 +832,7 @@ the Klaster Multichain Smart Account is derived.
 
 ###### Defined in
 
-[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L49)
+[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L49)
 
 ##### salt
 
@@ -844,7 +844,7 @@ addresses for the same EOA.
 
 ###### Defined in
 
-[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L50)
+[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L50)
 
 ##### token
 
@@ -855,7 +855,7 @@ the gas cost and transaction fees associated with the user operation.
 
 ###### Defined in
 
-[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L51)
+[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L51)
 
 ***
 
@@ -878,7 +878,7 @@ This represents the actual operation the user wants to perform.
 
 ###### Defined in
 
-[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L25)
+[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L25)
 
 ##### callGasLimit
 
@@ -890,7 +890,7 @@ account abstraction.
 
 ###### Defined in
 
-[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L26)
+[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L26)
 
 ##### chainId
 
@@ -901,7 +901,7 @@ This determines which network the operation will be sent to.
 
 ###### Defined in
 
-[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L27)
+[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L27)
 
 ##### masterWallet
 
@@ -912,7 +912,7 @@ the Klaster Multichain Smart Account is derived.
 
 ###### Defined in
 
-[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L23)
+[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L23)
 
 ##### salt
 
@@ -924,7 +924,7 @@ addresses for the same EOA.
 
 ###### Defined in
 
-[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L24)
+[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L24)
 
 ***
 
@@ -946,7 +946,7 @@ The data to be passed to the sender during the main execution call.
 
 ###### Defined in
 
-[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L77)
+[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L77)
 
 ##### callGasLimit
 
@@ -956,7 +956,7 @@ The gas limit for the main execution call.
 
 ###### Defined in
 
-[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L78)
+[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L78)
 
 ##### initCode
 
@@ -966,7 +966,7 @@ The initialization code for the account if it hasn't been deployed yet. Empty st
 
 ###### Defined in
 
-[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L76)
+[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L76)
 
 ##### maxFeePerGas
 
@@ -976,7 +976,7 @@ The maximum total fee per gas the sender is willing to pay (including the priori
 
 ###### Defined in
 
-[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L81)
+[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L81)
 
 ##### maxPriorityFeePerGas
 
@@ -986,7 +986,7 @@ The maximum priority fee per gas the sender is willing to pay.
 
 ###### Defined in
 
-[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L82)
+[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L82)
 
 ##### nonce
 
@@ -996,7 +996,7 @@ A unique identifier to prevent replay attacks, typically managed by the account 
 
 ###### Defined in
 
-[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L75)
+[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L75)
 
 ##### paymasterAndData
 
@@ -1006,7 +1006,7 @@ The address of the paymaster sponsoring the transaction, followed by extra data 
 
 ###### Defined in
 
-[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L83)
+[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L83)
 
 ##### preVerificationGas
 
@@ -1016,7 +1016,7 @@ The amount of gas to compensate the bundler for pre-verification execution and c
 
 ###### Defined in
 
-[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L80)
+[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L80)
 
 ##### sender
 
@@ -1026,7 +1026,7 @@ The address of the smart contract account that will make the transaction.
 
 ###### Defined in
 
-[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L74)
+[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L74)
 
 ##### signature
 
@@ -1036,7 +1036,7 @@ The signature over the entire UserOperation, to be validated during verification
 
 ###### Defined in
 
-[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L84)
+[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L84)
 
 ##### verificationGasLimit
 
@@ -1046,7 +1046,7 @@ The gas limit for the verification step.
 
 ###### Defined in
 
-[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L79)
+[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L79)
 
 ***
 
@@ -1069,7 +1069,7 @@ and can be used to track or reference the transaction's status and outcome acros
 
 ###### Defined in
 
-[types.ts:154](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L154)
+[types.ts:154](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L154)
 
 ***
 
@@ -1091,7 +1091,7 @@ The identifier of the blockchain network on which the userOp is executed.
 
 ###### Defined in
 
-[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L112)
+[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L112)
 
 ##### executionData
 
@@ -1101,7 +1101,7 @@ The callData of the executed action, representing the actual operation performed
 
 ###### Defined in
 
-[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L115)
+[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L115)
 
 ##### executionStatus
 
@@ -1116,7 +1116,7 @@ The current status of the UserOp execution:
 
 ###### Defined in
 
-[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L114)
+[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L114)
 
 ##### lowerBoundTimestap
 
@@ -1126,7 +1126,7 @@ The earliest timestamp at which the userOp will be executed on the target blockc
 
 ###### Defined in
 
-[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L110)
+[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L110)
 
 ##### maxGasLimit
 
@@ -1136,7 +1136,7 @@ The maximum gas limit allowed for the execution of this userOp.
 
 ###### Defined in
 
-[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L113)
+[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L113)
 
 ##### upperBoundTimestamp
 
@@ -1146,7 +1146,7 @@ The latest timestamp by which the userOp will be executed on the target blockcha
 
 ###### Defined in
 
-[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L111)
+[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L111)
 
 ##### userOp
 
@@ -1156,7 +1156,7 @@ The full ERC-4337 UserOperation object that was executed.
 
 ###### Defined in
 
-[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L108)
+[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L108)
 
 ##### userOpHash
 
@@ -1166,7 +1166,7 @@ The hash of the userOp, serving as a unique identifier for the operation.
 
 ###### Defined in
 
-[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L109)
+[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L109)
 
 ***
 
@@ -1188,7 +1188,7 @@ The identifier of the blockchain network on which the transaction(s) will be exe
 
 ###### Defined in
 
-[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L212)
+[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L212)
 
 ##### lowerBoundTime?
 
@@ -1198,7 +1198,7 @@ Optional. The earliest timestamp at which the transaction(s) can be executed.
 
 ###### Defined in
 
-[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L214)
+[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L214)
 
 ##### txs
 
@@ -1210,7 +1210,7 @@ An array of raw transactions to be executed on the specified chain.
 
 ###### Defined in
 
-[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L211)
+[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L211)
 
 ##### upperBoundTime?
 
@@ -1220,7 +1220,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L213)
+[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L213)
 
 ***
 
@@ -1234,7 +1234,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:193](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L193)
+[types.ts:193](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L193)
 
 ##### paymentInfo
 
@@ -1242,7 +1242,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:194](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L194)
+[types.ts:194](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L194)
 
 ***
 
@@ -1264,7 +1264,7 @@ the execution of the interchain transaction.
 
 ###### Defined in
 
-[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L183)
+[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L183)
 
 ##### itxHash
 
@@ -1275,7 +1275,7 @@ for the interchain transaction.
 
 ###### Defined in
 
-[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L181)
+[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L181)
 
 ##### node
 
@@ -1285,7 +1285,7 @@ The address of the Klaster node that is responsible for executing the interchain
 
 ###### Defined in
 
-[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L182)
+[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L182)
 
 ##### paymentInfo
 
@@ -1306,7 +1306,7 @@ used and the actual amount quoted for the execution.
 
 ###### Defined in
 
-[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L184)
+[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L184)
 
 ##### userOps
 
@@ -1317,7 +1317,7 @@ details of a user operation executed as part of this interchain transaction acro
 
 ###### Defined in
 
-[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L188)
+[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L188)
 
 ***
 
@@ -1343,7 +1343,7 @@ The unique address of the multichain smart contract account.
 
 ###### Defined in
 
-[types.ts:258](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L258)
+[types.ts:258](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L258)
 
 ##### salt
 
@@ -1356,7 +1356,7 @@ A unique value used in the account creation process.
 
 ###### Defined in
 
-[types.ts:259](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L259)
+[types.ts:259](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L259)
 
 ***
 
@@ -1379,7 +1379,7 @@ This commitment guarantees the execution of the quoted interchain transaction.
 
 ###### Defined in
 
-[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L138)
+[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L138)
 
 ##### itxHash
 
@@ -1390,7 +1390,7 @@ as a unique identifier for the entire interchain operation.
 
 ###### Defined in
 
-[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L137)
+[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L137)
 
 ##### node
 
@@ -1401,7 +1401,7 @@ committed itself to executing the interchain transaction.
 
 ###### Defined in
 
-[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L139)
+[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L139)
 
 ##### paymentInfo
 
@@ -1412,7 +1412,7 @@ transaction, including the token to be used and the chain on which the payment w
 
 ###### Defined in
 
-[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L140)
+[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L140)
 
 ##### userOps
 
@@ -1424,7 +1424,7 @@ represents a specific action on a particular blockchain within the interchain tr
 
 ###### Defined in
 
-[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L141)
+[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L141)
 
 ***
 
@@ -1448,7 +1448,7 @@ The input data of the transaction, typically the encoded function
 
 ###### Defined in
 
-[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L236)
+[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L236)
 
 ##### gasLimit
 
@@ -1459,7 +1459,7 @@ The maximum amount of gas that can be used for executing
 
 ###### Defined in
 
-[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L237)
+[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L237)
 
 ##### to
 
@@ -1470,7 +1470,7 @@ The recipient address of the transaction. This can be a contract
 
 ###### Defined in
 
-[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L234)
+[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L234)
 
 ##### value
 
@@ -1481,7 +1481,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L235)
+[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L235)
 
 ***
 
@@ -1495,7 +1495,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L267)
+[types.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L267)
 
 ##### supported\_chains
 
@@ -1503,7 +1503,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:268](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L268)
+[types.ts:268](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L268)
 
 ##### supported\_gas\_tokens
 
@@ -1511,7 +1511,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:272](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L272)
+[types.ts:272](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L272)
 
 ##### version
 
@@ -1519,7 +1519,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:266](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/types.ts#L266)
+[types.ts:266](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/types.ts#L266)
 
 ## Type Aliases
 
@@ -1548,7 +1548,7 @@ const validGasPaymentPair: ChainTokenPair = 'ethereum-usdc';
 
 #### Defined in
 
-[utils/token-resolver.service.ts:101](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/token-resolver.service.ts#L101)
+[utils/token-resolver.service.ts:101](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/token-resolver.service.ts#L101)
 
 ***
 
@@ -1570,7 +1570,7 @@ Configuration options for initializing the Klaster SDK.
 
 #### Defined in
 
-[index.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L36)
+[index.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L36)
 
 ## Functions
 
@@ -1633,7 +1633,7 @@ const rawTx = buildTransferERC20FromEoaTx(txParams);
 
 #### Defined in
 
-[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/utils.service.ts#L127)
+[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/utils.service.ts#L127)
 
 ***
 
@@ -1678,7 +1678,7 @@ const action = encodeAction([{ ... }, { ... }], 1);
 
 #### Defined in
 
-[utils/itx.service.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/itx.service.ts#L36)
+[utils/itx.service.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/itx.service.ts#L36)
 
 ***
 
@@ -1715,7 +1715,7 @@ const iTx = encodeItx({ ... });
 
 #### Defined in
 
-[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/itx.service.ts#L19)
+[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/itx.service.ts#L19)
 
 ***
 
@@ -1749,7 +1749,7 @@ const tx = encodeTx({ ... });
 
 #### Defined in
 
-[utils/itx.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/itx.service.ts#L53)
+[utils/itx.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/itx.service.ts#L53)
 
 ***
 
@@ -1814,7 +1814,7 @@ This function is designed to work in a browser environment and requires
 
 #### Defined in
 
-[utils/utils.service.ts:47](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/utils.service.ts#L47)
+[utils/utils.service.ts:47](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/utils.service.ts#L47)
 
 ***
 
@@ -1856,7 +1856,7 @@ console.log(usdcAddress); // '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
 
 #### Defined in
 
-[utils/token-resolver.service.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/token-resolver.service.ts#L267)
+[utils/token-resolver.service.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/token-resolver.service.ts#L267)
 
 ***
 
@@ -1903,7 +1903,7 @@ Throws an error if the provided configuration is invalid or if
 
 #### Defined in
 
-[index.ts:64](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/index.ts#L64)
+[index.ts:64](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/index.ts#L64)
 
 ***
 
@@ -1962,4 +1962,4 @@ This function is designed to work in a browser environment and requires
 
 #### Defined in
 
-[utils/utils.service.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/2a1b8f79284801705aa4028e33067dd41d8ab56c/src/utils/utils.service.ts#L86)
+[utils/utils.service.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/d263cb9cb6919f8b54e239220b0733d17b9cce74/src/utils/utils.service.ts#L86)
