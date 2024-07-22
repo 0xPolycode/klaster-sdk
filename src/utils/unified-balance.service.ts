@@ -1,20 +1,5 @@
 import { PublicClient, Address, getContract, erc20Abi } from "viem";
 
-// Define types
-type TokenInfo = {
-  chain: number;
-  address: Address;
-};
-
-type TokenMapping = {
-  [chainId: number]: Address;
-};
-
-type UnifiedBalanceResult = {
-  amount: bigint;
-  decimals: number;
-};
-
 /**
  * Creates a TokenMapping object from an array of TokenInfo objects.
  *
@@ -56,7 +41,8 @@ type UnifiedBalanceResult = {
  * });
  *
  * @see For using the created mapping, see the documentation for getUnifiedBalance.
- */ export function createTokenMapping(tokens: TokenInfo[]): TokenMapping {
+ */ 
+export function createTokenMapping(tokens: TokenInfo[]): TokenMapping {
   return tokens.reduce((acc, { chain, address }) => {
     acc[chain] = address;
     return acc;
@@ -117,7 +103,8 @@ type UnifiedBalanceResult = {
  *
  * @see For more information on creating token mappings, see the documentation for createTokenMapping.
  * @see For details on creating viem PublicClient instances, refer to the viem documentation: https://viem.sh/docs/clients/public.html
- */ export async function getUnifiedBalance({
+ */ 
+export async function getUnifiedBalance({
   mapping,
   address,
   clients,
@@ -165,3 +152,18 @@ type UnifiedBalanceResult = {
 
   return { amount: totalBalance, decimals };
 }
+
+// Define types
+type TokenInfo = {
+  chain: number;
+  address: Address;
+};
+
+type TokenMapping = {
+  [chainId: number]: Address;
+};
+
+type UnifiedBalanceResult = {
+  amount: bigint;
+  decimals: number;
+};

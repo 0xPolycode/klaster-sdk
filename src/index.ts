@@ -22,6 +22,7 @@ export * from "./utils/itx.service";
 export * from "./utils/salt.service";
 export * from "./utils/token-resolver.service";
 export * from "./utils/utils.service";
+export * from "./utils/unified-balance.service"
 
 /**
  * Configuration options for initializing the Klaster SDK.
