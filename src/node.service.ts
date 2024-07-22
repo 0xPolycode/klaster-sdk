@@ -7,11 +7,24 @@ import {
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 import { parseKlasterNodeError } from "./utils/error.service";
+import { ExecutedAction, ExecuteResponse } from "../dist";
 
+/**
+ * Service class for interacting with a Klaster Node.
+ * 
+ * This class provides methods to communicate with a Klaster Node, including
+ * operations like getting quotes, executing transactions, retrieving wallet
+ * addresses, and checking transaction statuses.
+ */
 export class KlasterNodeService {
   private nodeUrl: string;
   client: AxiosInstance;
 
+  /**
+   * Creates an instance of KlasterNodeService.
+   * 
+   * @param {string} nodeUrl - The URL of the Klaster Node to connect to.
+   */
   constructor(nodeUrl: string) {
     this.nodeUrl = nodeUrl;
     this.client = axios.create({
@@ -19,6 +32,15 @@ export class KlasterNodeService {
     });
   }
 
+  /**
+   * Fetches a quote for user operations from the Klaster Node.
+   * 
+   * @async
+   * @param {ApiUserOp[]} userOps - An array of user operations to get a quote for.
+   * @param {ApiPaymentData} paymentInfo - Payment information for the quote.
+   * @returns {Promise<QuoteResponse>} A promise that resolves to the quote response.
+   * @throws {Error} Throws an error if the request fails, with a parsed error message.
+   */
   async getQuote(userOps: ApiUserOp[], paymentInfo: ApiPaymentData) {
     const mappedOps = userOps.map((userOp) => {
       return { ...userOp, chainId: userOp.chainId.toString() };
@@ -38,7 +60,16 @@ export class KlasterNodeService {
     }
   }
 
-  async executeTx(quoteResponse: QuoteResponse, signedHash: string) {
+  /**
+   * Executes a transaction on the Klaster Node based on a quote response and signed hash.
+   * 
+   * @async
+   * @param {QuoteResponse} quoteResponse - The quote response object.
+   * @param {string} signedHash - The signed hash of the transaction.
+   * @returns {Promise<ExecuteResponse>} A promise that resolves to the execution response.
+   * @throws {Error} Throws an error if the execution fails, with a parsed error message.
+   */
+  async executeTx(quoteResponse: QuoteResponse, signedHash: string): Promise<ExecuteResponse> {
     const request = { ...quoteResponse, signature: signedHash };
     try {
       const response = await this.client.post("execute", request);
@@ -48,6 +79,16 @@ export class KlasterNodeService {
     }
   }
 
+   /**
+   * Retrieves a wallet address for a given master wallet and salt. This uses ERC4337
+   * account derivation to derive the address of the smart contract wallet.
+   * 
+   * @async
+   * @param {string} masterWallet - The address of the master wallet.
+   * @param {string} salt - The salt value used for address derivation.
+   * @returns {Promise<Address>} A promise that resolves to the derived wallet address.
+   * @throws {Error} Throws an error if the retrieval fails, with a parsed error message.
+   */
   async getWallet(masterWallet: string, salt: string): Promise<Address> {
     try {
       const response = await this.client.get(`address/${masterWallet}/${salt}`);
@@ -57,6 +98,14 @@ export class KlasterNodeService {
     }
   }
 
+  /**
+   * Fetches the status of an interchain transaction (iTx) by its hash.
+   * 
+   * @async
+   * @param {string} hash - The hash of the interchain transaction.
+   * @returns {Promise<ItxStatusResponse>} A promise that resolves to the iTx status response.
+   * @throws {Error} Throws an error if the status retrieval fails, with a parsed error message.
+   */
   async getItxStatus(hash: string): Promise<ItxStatusResponse> {
     try {
       const response = await this.client.get(`explorer/${hash}`);

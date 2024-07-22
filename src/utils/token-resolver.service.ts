@@ -22,7 +22,20 @@ interface ApiResponse {
   }[];
 }
 
-/** Represents a chain name and token symbol pair */
+/**
+ * Represents the supported blockchain networks for gas fee payments in the Klaster ecosystem.
+ * 
+ * This type ensures that only valid chain names are used when specifying
+ * blockchain networks for gas fee payment operations within the Klaster SDK.
+ * 
+ * @typedef {('ethereum' | 'optimism' | 'sepolia' | 'polygon' | 'arbitrum-one' | 
+*            'arbitrum-sepolia' | 'avalanche-c-chain' | 'scroll' | 
+*            'bnb-smart-chain' | 'base')} ChainConstrainer
+* 
+* @example
+* const validGasPaymentChain: ChainConstrainer = 'ethereum';
+* // const invalidGasPaymentChain: ChainConstrainer = 'bitcoin'; // This would cause a TypeScript error
+*/
 type ChainConstrainer =
   | 'ethereum'
   | 'optimism'
@@ -34,7 +47,21 @@ type ChainConstrainer =
   | 'scroll'
   | 'bnb-smart-chain'
   | 'base';
-  
+
+/**
+ * Represents the supported token symbols for gas fee payments in the Klaster ecosystem.
+ * 
+ * This type ensures that only valid token symbols are used when specifying
+ * tokens for gas fee payment operations within the Klaster SDK.
+ * 
+ * @typedef {('eth' | 'weth' | 'link' | 'usdc' | 'wsteth' | 'usdt' | 'matic' | 
+*            'wmatic' | 'stmatic' | 'avax' | 'wavax' | 'bnb' | 'wbnb' | 
+*            'axlusdc' | 'crusdc' | 'bsc-usd')} TokenConstrainer
+* 
+* @example
+* const validGasPaymentToken: TokenConstrainer = 'usdc';
+* // const invalidGasPaymentToken: TokenConstrainer = 'dai'; // This would cause a TypeScript error
+*/
 type TokenConstrainer =
   | 'eth'
   | 'weth'
@@ -53,6 +80,24 @@ type TokenConstrainer =
   | 'crusdc'
   | 'bsc-usd';
 
+/**
+ * Represents a valid combination of a chain name and a token symbol for gas fee payments.
+ * 
+ * This type ensures type safety when specifying chain-token pairs for gas fee payments in the Klaster SDK.
+ * It combines a ChainConstrainer and a TokenConstrainer with a hyphen separator.
+ * 
+ * @typedef {`${ChainConstrainer}-${TokenConstrainer}`} ChainTokenPair
+ * 
+ * @example
+ * const validGasPaymentPair: ChainTokenPair = 'ethereum-usdc';
+ * // const invalidGasPaymentPair: ChainTokenPair = 'ethereum-btc'; // This would cause a TypeScript error
+ * 
+ * @remarks
+ * - This type is specifically used to validate payment tokens for covering gas fees in the Klaster ecosystem.
+ * - Not all combinations of chains and tokens may be valid or supported for gas fee payments.
+ * - The availability of specific tokens for gas fee payments may vary by chain.
+ * - Refer to the Klaster documentation for the most up-to-date list of supported chain-token pairs for gas payments.
+ */
 export type ChainTokenPair = `${ChainConstrainer}-${TokenConstrainer}`;
 
 /**

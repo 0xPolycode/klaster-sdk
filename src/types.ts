@@ -238,7 +238,22 @@ export interface RawTransaction {
 }
 
 
-// Multichain Smart Contract account model.
+/**
+ * Represents a Klaster Multichain Smart Contract account model.
+ * This interface defines the essential properties of a smart contract account
+ * that can operate across multiple blockchain networks.
+ *
+ * @interface MultichainAccount
+ * @property {Address} address - The unique address of the multichain smart contract account.
+ *   This address is (mostly) consistent across all supported blockchain networks, allowing
+ *   for unified identity and seamless cross-chain operations. Some exceptions to the generated
+ *   address being consistent are blockchains in the zkSync ecosystem & any other ecosystem where
+ *   the CREATE2 opcode doesn't behave the same way as on Ethereum mainnet.
+ * @property {string} salt - A unique value used in the account creation process.
+ *   The salt, combined with other parameters (such as the owner's address),
+ *   ensures that the account address is unique and deterministically generated
+ *   across all supported chains.
+ */
 export interface MultichainAccount {
   address: Address;
   salt: string;
