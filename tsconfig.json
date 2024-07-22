@@ -8,7 +8,8 @@
     "strict": true /* Enable all strict type-checking options. */,
     "outDir": "./dist",
     "skipLibCheck": true,
+    "removeComments": false,
     "moduleResolution": "Bundler" /* Skip type checking all .d.ts files. */
   },
-  "exclude": ["./wagmi.config.ts", "./jest.config.ts"]
+  "exclude": ["./wagmi.config.ts", "./jest.config.ts", "./dist", "dist.d.ts"]
 }

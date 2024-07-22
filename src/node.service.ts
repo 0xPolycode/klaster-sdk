@@ -2,12 +2,12 @@ import { Address } from "viem";
 import {
   ApiPaymentData,
   ApiUserOp,
+  ExecuteResponse,
   ItxStatusResponse,
   QuoteResponse,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
 import { parseKlasterNodeError } from "./utils/error.service";
-import { ExecutedAction, ExecuteResponse } from "../dist";
 
 /**
  * Service class for interacting with a Klaster Node.
