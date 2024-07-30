@@ -10,11 +10,8 @@ import {
 } from "./types";
 import { EncodingService } from "./utils/encoding.service";
 import { SaltUtil } from "./utils/salt.service";
-import {
-  ChainTokenPair,
-  getPaymentToken,
-} from "./utils/token-resolver.service";
 import { buildTransferERC20FromEoaTx } from "./utils/utils.service";
+import { PaymentTokenSymbol, resolveToken } from "./utils/token-resolver.service";
 
 export * from "./types";
 export * from "./utils/encoding.service";
@@ -196,8 +193,10 @@ export class KlasterSDK {
    * and the specified payment token to create a complete payment data structure.
    *
    * @async
-   * @param {ChainTokenPair} paymentToken - A string representing the chain and token to be used for payment,
-   *                                        in the format "chainName-tokenSymbol" (e.g., "optimism-usdc").
+   * @param {PaymentTokenSymbol} paymentToken - A string representing the symbol of the token being used for
+   *                                            payments. e.g. ETH, USDC, MATIC, WSTETH, ...
+   * 
+   * @param {number} chainId - The chainId of the chain on which you wish to execute the payment.
    *
    * @returns {Promise<ApiPaymentData>} A promise that resolves to an ApiPaymentData object containing:
    *   - chainId: The chain ID where the payment will be processed
@@ -213,7 +212,7 @@ export class KlasterSDK {
    * @example
    * // Assuming 'klasterSDK' is an initialized instance of the Klaster SDK
    * try {
-   *   const paymentData = await klasterSDK.encodeTxFee('optimism-usdc');
+   *   const paymentData = await klasterSDK.encodeTxFee('USDC', optimism.id);
    *   console.log('Payment data:', paymentData);
    * } catch (error) {
    *   console.error('Failed to encode transaction fee:', error);
@@ -225,16 +224,16 @@ export class KlasterSDK {
    * @see {@link getMultichainAccount} - Used internally to fetch the current multichain account.
    * @see {@link getPaymentToken} - Used internally to resolve the token address from the ChainTokenPair.
    */
-  async encodeTxFee(paymentToken: ChainTokenPair): Promise<ApiPaymentData> {
+  async encodeTxFee(paymentToken: PaymentTokenSymbol, chainId: number): Promise<ApiPaymentData> {
     const account = await this.getMultichainAccount();
 
-    const tokenAddress = getPaymentToken(paymentToken)!;
+    const tokenInfo = resolveToken(paymentToken, chainId)
 
     return {
       chainId: 10,
       masterWallet: this.masterAddress,
       salt: account.salt,
-      token: tokenAddress,
+      token: tokenInfo.address,
     };
   }
 

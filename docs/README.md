@@ -77,7 +77,7 @@ const userOp = EncodingService.encodeBatchCall(
 
 ###### Defined in
 
-[utils/encoding.service.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/encoding.service.ts#L80)
+[utils/encoding.service.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/encoding.service.ts#L80)
 
 ##### encodeUserOpCall()
 
@@ -125,7 +125,7 @@ const userOp = EncodingService.encodeUserOpCall(
 
 ###### Defined in
 
-[utils/encoding.service.ts:35](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/encoding.service.ts#L35)
+[utils/encoding.service.ts:35](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/encoding.service.ts#L35)
 
 ***
 
@@ -152,7 +152,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L81)
+[index.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L78)
 
 #### Properties
 
@@ -162,7 +162,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L77)
+[index.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L74)
 
 ##### masterAddress
 
@@ -170,7 +170,7 @@ for encoding tokens, transactions and accounts.
 
 ###### Defined in
 
-[index.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L79)
+[index.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L76)
 
 #### Methods
 
@@ -247,7 +247,7 @@ try {
 
 ###### Defined in
 
-[index.ts:398](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L398)
+[index.ts:397](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L397)
 
 ##### changeAccountSalt()
 
@@ -293,7 +293,7 @@ For more information on ERC4337 and account abstraction, visit:
 
 ###### Defined in
 
-[index.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L139)
+[index.ts:136](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L136)
 
 ##### changeMasterAddress()
 
@@ -341,11 +341,11 @@ For more information on ERC4337 and account abstraction, visit:
 
 ###### Defined in
 
-[index.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L110)
+[index.ts:107](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L107)
 
 ##### encodeTxFee()
 
-> **encodeTxFee**(`paymentToken`): `Promise`\<[`ApiPaymentData`](README.md#apipaymentdata)\>
+> **encodeTxFee**(`paymentToken`, `chainId`): `Promise`\<[`ApiPaymentData`](README.md#apipaymentdata)\>
 
 A helper function that prepares an ApiPaymentData object for transaction fee payments.
 
@@ -356,10 +356,14 @@ and the specified payment token to create a complete payment data structure.
 
 ###### Parameters
 
-• **paymentToken**: `"ethereum-eth"` \| `"ethereum-weth"` \| `"ethereum-link"` \| `"ethereum-usdc"` \| `"ethereum-wsteth"` \| `"ethereum-usdt"` \| `"ethereum-matic"` \| `"ethereum-wmatic"` \| `"ethereum-stmatic"` \| `"ethereum-avax"` \| `"ethereum-wavax"` \| `"ethereum-bnb"` \| `"ethereum-wbnb"` \| `"ethereum-axlusdc"` \| `"ethereum-crusdc"` \| `"ethereum-bsc-usd"` \| `"optimism-eth"` \| `"optimism-weth"` \| `"optimism-link"` \| `"optimism-usdc"` \| `"optimism-wsteth"` \| `"optimism-usdt"` \| `"optimism-matic"` \| `"optimism-wmatic"` \| `"optimism-stmatic"` \| `"optimism-avax"` \| `"optimism-wavax"` \| `"optimism-bnb"` \| `"optimism-wbnb"` \| `"optimism-axlusdc"` \| `"optimism-crusdc"` \| `"optimism-bsc-usd"` \| `"sepolia-eth"` \| `"sepolia-weth"` \| `"sepolia-link"` \| `"sepolia-usdc"` \| `"sepolia-wsteth"` \| `"sepolia-usdt"` \| `"sepolia-matic"` \| `"sepolia-wmatic"` \| `"sepolia-stmatic"` \| `"sepolia-avax"` \| `"sepolia-wavax"` \| `"sepolia-bnb"` \| `"sepolia-wbnb"` \| `"sepolia-axlusdc"` \| `"sepolia-crusdc"` \| `"sepolia-bsc-usd"` \| `"polygon-eth"` \| `"polygon-weth"` \| `"polygon-link"` \| `"polygon-usdc"` \| `"polygon-wsteth"` \| `"polygon-usdt"` \| `"polygon-matic"` \| `"polygon-wmatic"` \| `"polygon-stmatic"` \| `"polygon-avax"` \| `"polygon-wavax"` \| `"polygon-bnb"` \| `"polygon-wbnb"` \| `"polygon-axlusdc"` \| `"polygon-crusdc"` \| `"polygon-bsc-usd"` \| `"arbitrum-one-eth"` \| `"arbitrum-one-weth"` \| `"arbitrum-one-link"` \| `"arbitrum-one-usdc"` \| `"arbitrum-one-wsteth"` \| `"arbitrum-one-usdt"` \| `"arbitrum-one-matic"` \| `"arbitrum-one-wmatic"` \| `"arbitrum-one-stmatic"` \| `"arbitrum-one-avax"` \| `"arbitrum-one-wavax"` \| `"arbitrum-one-bnb"` \| `"arbitrum-one-wbnb"` \| `"arbitrum-one-axlusdc"` \| `"arbitrum-one-crusdc"` \| `"arbitrum-one-bsc-usd"` \| `"arbitrum-sepolia-eth"` \| `"arbitrum-sepolia-weth"` \| `"arbitrum-sepolia-link"` \| `"arbitrum-sepolia-usdc"` \| `"arbitrum-sepolia-wsteth"` \| `"arbitrum-sepolia-usdt"` \| `"arbitrum-sepolia-matic"` \| `"arbitrum-sepolia-wmatic"` \| `"arbitrum-sepolia-stmatic"` \| `"arbitrum-sepolia-avax"` \| `"arbitrum-sepolia-wavax"` \| `"arbitrum-sepolia-bnb"` \| `"arbitrum-sepolia-wbnb"` \| `"arbitrum-sepolia-axlusdc"` \| `"arbitrum-sepolia-crusdc"` \| `"arbitrum-sepolia-bsc-usd"` \| `"avalanche-c-chain-eth"` \| `"avalanche-c-chain-weth"` \| `"avalanche-c-chain-link"` \| `"avalanche-c-chain-usdc"` \| `"avalanche-c-chain-wsteth"` \| `"avalanche-c-chain-usdt"` \| `"avalanche-c-chain-matic"` \| `"avalanche-c-chain-wmatic"` \| `"avalanche-c-chain-stmatic"` \| `"avalanche-c-chain-avax"` \| `"avalanche-c-chain-wavax"` \| `"avalanche-c-chain-bnb"` \| `"avalanche-c-chain-wbnb"` \| `"avalanche-c-chain-axlusdc"` \| `"avalanche-c-chain-crusdc"` \| `"avalanche-c-chain-bsc-usd"` \| `"scroll-eth"` \| `"scroll-weth"` \| `"scroll-link"` \| `"scroll-usdc"` \| `"scroll-wsteth"` \| `"scroll-usdt"` \| `"scroll-matic"` \| `"scroll-wmatic"` \| `"scroll-stmatic"` \| `"scroll-avax"` \| `"scroll-wavax"` \| `"scroll-bnb"` \| `"scroll-wbnb"` \| `"scroll-axlusdc"` \| `"scroll-crusdc"` \| `"scroll-bsc-usd"` \| `"bnb-smart-chain-eth"` \| `"bnb-smart-chain-weth"` \| `"bnb-smart-chain-link"` \| `"bnb-smart-chain-usdc"` \| `"bnb-smart-chain-wsteth"` \| `"bnb-smart-chain-usdt"` \| `"bnb-smart-chain-matic"` \| `"bnb-smart-chain-wmatic"` \| `"bnb-smart-chain-stmatic"` \| `"bnb-smart-chain-avax"` \| `"bnb-smart-chain-wavax"` \| `"bnb-smart-chain-bnb"` \| `"bnb-smart-chain-wbnb"` \| `"bnb-smart-chain-axlusdc"` \| `"bnb-smart-chain-crusdc"` \| `"bnb-smart-chain-bsc-usd"` \| `"base-eth"` \| `"base-weth"` \| `"base-link"` \| `"base-usdc"` \| `"base-wsteth"` \| `"base-usdt"` \| `"base-matic"` \| `"base-wmatic"` \| `"base-stmatic"` \| `"base-avax"` \| `"base-wavax"` \| `"base-bnb"` \| `"base-wbnb"` \| `"base-axlusdc"` \| `"base-crusdc"` \| `"base-bsc-usd"`
+• **paymentToken**: [`PaymentTokenSymbol`](README.md#paymenttokensymbol)
 
-A string representing the chain and token to be used for payment,
-                                       in the format "chainName-tokenSymbol" (e.g., "optimism-usdc").
+A string representing the symbol of the token being used for
+                                           payments. e.g. ETH, USDC, MATIC, WSTETH, ...
+
+• **chainId**: `number`
+
+The chainId of the chain on which you wish to execute the payment.
 
 ###### Returns
 
@@ -385,7 +389,7 @@ May throw an error if:
 ```ts
 // Assuming 'klasterSDK' is an initialized instance of the Klaster SDK
 try {
-  const paymentData = await klasterSDK.encodeTxFee('optimism-usdc');
+  const paymentData = await klasterSDK.encodeTxFee('USDC', optimism.id);
   console.log('Payment data:', paymentData);
 } catch (error) {
   console.error('Failed to encode transaction fee:', error);
@@ -400,11 +404,11 @@ Make sure these are set correctly before calling this function.
 ###### See
 
  - [getMultichainAccount](README.md#getmultichainaccount) - Used internally to fetch the current multichain account.
- - [getPaymentToken](README.md#getpaymenttoken) - Used internally to resolve the token address from the ChainTokenPair.
+ - getPaymentToken - Used internally to resolve the token address from the ChainTokenPair.
 
 ###### Defined in
 
-[index.ts:228](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L228)
+[index.ts:227](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L227)
 
 ##### execute()
 
@@ -466,7 +470,7 @@ try {
 
 ###### Defined in
 
-[index.ts:343](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L343)
+[index.ts:342](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L342)
 
 ##### getMultichainAccount()
 
@@ -523,7 +527,7 @@ before calling this function.
 
 ###### Defined in
 
-[index.ts:179](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L179)
+[index.ts:176](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L176)
 
 ##### getQuote()
 
@@ -593,7 +597,7 @@ This function uses the current values of `masterAddress` and `activeAccountSalt`
 
 ###### Defined in
 
-[index.ts:283](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L283)
+[index.ts:282](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L282)
 
 ##### transferAndExecute()
 
@@ -686,7 +690,7 @@ const result = await klasterSDK.transferAndExecute({
 
 ###### Defined in
 
-[index.ts:467](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L467)
+[index.ts:466](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L466)
 
 ***
 
@@ -738,7 +742,7 @@ console.log(thirdAccountSalt); // Outputs: "2"
 
 ###### Defined in
 
-[utils/salt.service.ts:33](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/salt.service.ts#L33)
+[utils/salt.service.ts:33](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/salt.service.ts#L33)
 
 ##### customAccount()
 
@@ -774,7 +778,7 @@ Custom salts should be securely generated and managed to maintain account securi
 
 ###### Defined in
 
-[utils/salt.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/salt.service.ts#L53)
+[utils/salt.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/salt.service.ts#L53)
 
 ##### firstAccount()
 
@@ -797,7 +801,7 @@ console.log(firstAccountSalt); // Outputs: "0"
 
 ###### Defined in
 
-[utils/salt.service.ts:17](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/salt.service.ts#L17)
+[utils/salt.service.ts:17](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/salt.service.ts#L17)
 
 ## Interfaces
 
@@ -821,7 +825,7 @@ blockchain where the payment transaction will occur.
 
 ###### Defined in
 
-[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L52)
+[types.ts:52](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L52)
 
 ##### masterWallet
 
@@ -832,7 +836,7 @@ the Klaster Multichain Smart Account is derived.
 
 ###### Defined in
 
-[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L49)
+[types.ts:49](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L49)
 
 ##### salt
 
@@ -844,7 +848,7 @@ addresses for the same EOA.
 
 ###### Defined in
 
-[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L50)
+[types.ts:50](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L50)
 
 ##### token
 
@@ -855,7 +859,7 @@ the gas cost and transaction fees associated with the user operation.
 
 ###### Defined in
 
-[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L51)
+[types.ts:51](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L51)
 
 ***
 
@@ -878,7 +882,7 @@ This represents the actual operation the user wants to perform.
 
 ###### Defined in
 
-[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L25)
+[types.ts:25](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L25)
 
 ##### callGasLimit
 
@@ -890,7 +894,7 @@ account abstraction.
 
 ###### Defined in
 
-[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L26)
+[types.ts:26](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L26)
 
 ##### chainId
 
@@ -901,7 +905,7 @@ This determines which network the operation will be sent to.
 
 ###### Defined in
 
-[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L27)
+[types.ts:27](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L27)
 
 ##### masterWallet
 
@@ -912,7 +916,7 @@ the Klaster Multichain Smart Account is derived.
 
 ###### Defined in
 
-[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L23)
+[types.ts:23](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L23)
 
 ##### salt
 
@@ -924,7 +928,7 @@ addresses for the same EOA.
 
 ###### Defined in
 
-[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L24)
+[types.ts:24](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L24)
 
 ***
 
@@ -946,7 +950,7 @@ The data to be passed to the sender during the main execution call.
 
 ###### Defined in
 
-[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L77)
+[types.ts:77](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L77)
 
 ##### callGasLimit
 
@@ -956,7 +960,7 @@ The gas limit for the main execution call.
 
 ###### Defined in
 
-[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L78)
+[types.ts:78](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L78)
 
 ##### initCode
 
@@ -966,7 +970,7 @@ The initialization code for the account if it hasn't been deployed yet. Empty st
 
 ###### Defined in
 
-[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L76)
+[types.ts:76](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L76)
 
 ##### maxFeePerGas
 
@@ -976,7 +980,7 @@ The maximum total fee per gas the sender is willing to pay (including the priori
 
 ###### Defined in
 
-[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L81)
+[types.ts:81](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L81)
 
 ##### maxPriorityFeePerGas
 
@@ -986,7 +990,7 @@ The maximum priority fee per gas the sender is willing to pay.
 
 ###### Defined in
 
-[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L82)
+[types.ts:82](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L82)
 
 ##### nonce
 
@@ -996,7 +1000,7 @@ A unique identifier to prevent replay attacks, typically managed by the account 
 
 ###### Defined in
 
-[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L75)
+[types.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L75)
 
 ##### paymasterAndData
 
@@ -1006,7 +1010,7 @@ The address of the paymaster sponsoring the transaction, followed by extra data 
 
 ###### Defined in
 
-[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L83)
+[types.ts:83](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L83)
 
 ##### preVerificationGas
 
@@ -1016,7 +1020,7 @@ The amount of gas to compensate the bundler for pre-verification execution and c
 
 ###### Defined in
 
-[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L80)
+[types.ts:80](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L80)
 
 ##### sender
 
@@ -1026,7 +1030,7 @@ The address of the smart contract account that will make the transaction.
 
 ###### Defined in
 
-[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L74)
+[types.ts:74](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L74)
 
 ##### signature
 
@@ -1036,7 +1040,7 @@ The signature over the entire UserOperation, to be validated during verification
 
 ###### Defined in
 
-[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L84)
+[types.ts:84](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L84)
 
 ##### verificationGasLimit
 
@@ -1046,7 +1050,7 @@ The gas limit for the verification step.
 
 ###### Defined in
 
-[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L79)
+[types.ts:79](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L79)
 
 ***
 
@@ -1069,7 +1073,7 @@ and can be used to track or reference the transaction's status and outcome acros
 
 ###### Defined in
 
-[types.ts:154](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L154)
+[types.ts:154](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L154)
 
 ***
 
@@ -1091,7 +1095,7 @@ The identifier of the blockchain network on which the userOp is executed.
 
 ###### Defined in
 
-[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L112)
+[types.ts:112](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L112)
 
 ##### executionData
 
@@ -1101,7 +1105,7 @@ The callData of the executed action, representing the actual operation performed
 
 ###### Defined in
 
-[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L115)
+[types.ts:115](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L115)
 
 ##### executionStatus
 
@@ -1116,7 +1120,7 @@ The current status of the UserOp execution:
 
 ###### Defined in
 
-[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L114)
+[types.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L114)
 
 ##### lowerBoundTimestap
 
@@ -1126,7 +1130,7 @@ The earliest timestamp at which the userOp will be executed on the target blockc
 
 ###### Defined in
 
-[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L110)
+[types.ts:110](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L110)
 
 ##### maxGasLimit
 
@@ -1136,7 +1140,7 @@ The maximum gas limit allowed for the execution of this userOp.
 
 ###### Defined in
 
-[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L113)
+[types.ts:113](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L113)
 
 ##### upperBoundTimestamp
 
@@ -1146,7 +1150,7 @@ The latest timestamp by which the userOp will be executed on the target blockcha
 
 ###### Defined in
 
-[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L111)
+[types.ts:111](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L111)
 
 ##### userOp
 
@@ -1156,7 +1160,7 @@ The full ERC-4337 UserOperation object that was executed.
 
 ###### Defined in
 
-[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L108)
+[types.ts:108](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L108)
 
 ##### userOpHash
 
@@ -1166,7 +1170,7 @@ The hash of the userOp, serving as a unique identifier for the operation.
 
 ###### Defined in
 
-[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L109)
+[types.ts:109](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L109)
 
 ***
 
@@ -1188,7 +1192,7 @@ The identifier of the blockchain network on which the transaction(s) will be exe
 
 ###### Defined in
 
-[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L212)
+[types.ts:212](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L212)
 
 ##### lowerBoundTime?
 
@@ -1198,7 +1202,7 @@ Optional. The earliest timestamp at which the transaction(s) can be executed.
 
 ###### Defined in
 
-[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L214)
+[types.ts:214](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L214)
 
 ##### txs
 
@@ -1210,7 +1214,7 @@ An array of raw transactions to be executed on the specified chain.
 
 ###### Defined in
 
-[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L211)
+[types.ts:211](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L211)
 
 ##### upperBoundTime?
 
@@ -1220,7 +1224,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L213)
+[types.ts:213](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L213)
 
 ***
 
@@ -1234,7 +1238,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:193](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L193)
+[types.ts:193](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L193)
 
 ##### paymentInfo
 
@@ -1242,7 +1246,7 @@ Optional. The latest timestamp by which the transaction(s) should be executed.
 
 ###### Defined in
 
-[types.ts:194](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L194)
+[types.ts:194](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L194)
 
 ***
 
@@ -1264,7 +1268,7 @@ the execution of the interchain transaction.
 
 ###### Defined in
 
-[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L183)
+[types.ts:183](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L183)
 
 ##### itxHash
 
@@ -1275,7 +1279,7 @@ for the interchain transaction.
 
 ###### Defined in
 
-[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L181)
+[types.ts:181](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L181)
 
 ##### node
 
@@ -1285,7 +1289,7 @@ The address of the Klaster node that is responsible for executing the interchain
 
 ###### Defined in
 
-[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L182)
+[types.ts:182](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L182)
 
 ##### paymentInfo
 
@@ -1306,7 +1310,7 @@ used and the actual amount quoted for the execution.
 
 ###### Defined in
 
-[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L184)
+[types.ts:184](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L184)
 
 ##### userOps
 
@@ -1317,7 +1321,7 @@ details of a user operation executed as part of this interchain transaction acro
 
 ###### Defined in
 
-[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L188)
+[types.ts:188](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L188)
 
 ***
 
@@ -1343,7 +1347,7 @@ The unique address of the multichain smart contract account.
 
 ###### Defined in
 
-[types.ts:258](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L258)
+[types.ts:258](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L258)
 
 ##### salt
 
@@ -1356,7 +1360,7 @@ A unique value used in the account creation process.
 
 ###### Defined in
 
-[types.ts:259](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L259)
+[types.ts:259](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L259)
 
 ***
 
@@ -1379,7 +1383,7 @@ This commitment guarantees the execution of the quoted interchain transaction.
 
 ###### Defined in
 
-[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L138)
+[types.ts:138](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L138)
 
 ##### itxHash
 
@@ -1390,7 +1394,7 @@ as a unique identifier for the entire interchain operation.
 
 ###### Defined in
 
-[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L137)
+[types.ts:137](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L137)
 
 ##### node
 
@@ -1401,7 +1405,7 @@ committed itself to executing the interchain transaction.
 
 ###### Defined in
 
-[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L139)
+[types.ts:139](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L139)
 
 ##### paymentInfo
 
@@ -1412,7 +1416,7 @@ transaction, including the token to be used and the chain on which the payment w
 
 ###### Defined in
 
-[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L140)
+[types.ts:140](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L140)
 
 ##### userOps
 
@@ -1424,7 +1428,7 @@ represents a specific action on a particular blockchain within the interchain tr
 
 ###### Defined in
 
-[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L141)
+[types.ts:141](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L141)
 
 ***
 
@@ -1448,7 +1452,7 @@ The input data of the transaction, typically the encoded function
 
 ###### Defined in
 
-[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L236)
+[types.ts:236](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L236)
 
 ##### gasLimit
 
@@ -1459,7 +1463,7 @@ The maximum amount of gas that can be used for executing
 
 ###### Defined in
 
-[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L237)
+[types.ts:237](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L237)
 
 ##### to
 
@@ -1470,7 +1474,7 @@ The recipient address of the transaction. This can be a contract
 
 ###### Defined in
 
-[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L234)
+[types.ts:234](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L234)
 
 ##### value
 
@@ -1481,7 +1485,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L235)
+[types.ts:235](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L235)
 
 ***
 
@@ -1495,7 +1499,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L267)
+[types.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L267)
 
 ##### supported\_chains
 
@@ -1503,7 +1507,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:268](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L268)
+[types.ts:268](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L268)
 
 ##### supported\_gas\_tokens
 
@@ -1511,7 +1515,7 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:272](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L272)
+[types.ts:272](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L272)
 
 ##### version
 
@@ -1519,38 +1523,9 @@ The amount of native currency (e.g., ETH) to be sent with the
 
 ###### Defined in
 
-[types.ts:266](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/types.ts#L266)
+[types.ts:266](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/types.ts#L266)
 
 ## Type Aliases
-
-### ChainTokenPair
-
-> **ChainTokenPair**: \`$\{ChainConstrainer\}-$\{TokenConstrainer\}\`
-
-Represents a valid combination of a chain name and a token symbol for gas fee payments.
-
-This type ensures type safety when specifying chain-token pairs for gas fee payments in the Klaster SDK.
-It combines a ChainConstrainer and a TokenConstrainer with a hyphen separator.
-
-#### Example
-
-```ts
-const validGasPaymentPair: ChainTokenPair = 'ethereum-usdc';
-// const invalidGasPaymentPair: ChainTokenPair = 'ethereum-btc'; // This would cause a TypeScript error
-```
-
-#### Remarks
-
-- This type is specifically used to validate payment tokens for covering gas fees in the Klaster ecosystem.
-- Not all combinations of chains and tokens may be valid or supported for gas fee payments.
-- The availability of specific tokens for gas fee payments may vary by chain.
-- Refer to the Klaster documentation for the most up-to-date list of supported chain-token pairs for gas payments.
-
-#### Defined in
-
-[utils/token-resolver.service.ts:101](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/token-resolver.service.ts#L101)
-
-***
 
 ### Config
 
@@ -1570,9 +1545,77 @@ Configuration options for initializing the Klaster SDK.
 
 #### Defined in
 
-[index.ts:37](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L37)
+[index.ts:34](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L34)
+
+***
+
+### PaymentTokenSymbol
+
+> **PaymentTokenSymbol**: `"ETH"` \| `"WETH"` \| `"LINK"` \| `"USDC"` \| `"wstETH"` \| `"USDT"` \| `"MATIC"` \| `"WMATIC"` \| `"stMATIC"` \| `"AVAX"` \| `"WAVAX"` \| `"BNB"` \| `"WBNB"` \| `"axlUSDC"` \| `"crUSDC"` \| `"BSC-USD"`
+
+Represents the symbol of a payment token supported by the system.
+These symbols correspond to various tokens
+that can be used for payments across different blockchain networks.
+
+#### Defined in
+
+[utils/token-resolver.service.ts:88](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/token-resolver.service.ts#L88)
 
 ## Functions
+
+### buildTokenStrategy()
+
+> **buildTokenStrategy**(`__namedParameters`): `Promise`\<`TokenStrategy`\>
+
+Builds a strategy for using tokens across multiple chains to satisfy a given amount.
+Ensures all tokens have the same number of decimals.
+
+#### Parameters
+
+• **\_\_namedParameters**: `BuildTokenStrategyOptions`
+
+#### Returns
+
+`Promise`\<`TokenStrategy`\>
+
+A promise that resolves to either:
+  - An array of StrategyItem objects, each containing a chainId and an amount to use from that chain.
+  - null if the total balance across all chains is insufficient to satisfy the requested amount.
+
+#### Throws
+
+Throws an error if:
+  - There's an issue fetching balances or decimals
+  - The token addresses are invalid
+  - Tokens across different chains have different numbers of decimals
+
+#### Example
+
+```ts
+const tokenMapping = {
+  10: '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85',  // USDC on Optimism
+  8453: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' // USDC on Base
+};
+
+const chainConfigs = [
+  { chainId: 10, rpcUrl: 'https://mainnet.optimism.io' },
+  { chainId: 8453, rpcUrl: 'https://mainnet.base.org' }
+];
+
+const strategy = await buildTokenStrategy(tokenMapping, chainConfigs, BigInt("25000"), '0x...', "ascending");
+if (strategy) {
+  console.log('Strategy found:', strategy);
+  // Possible output: [{ chainId: 8453, amount: BigInt("4000") }, { chainId: 10, amount: BigInt("21000") }]
+} else {
+  console.log('Not enough tokens available across all chains');
+}
+```
+
+#### Defined in
+
+[utils/unified-balance.service.ts:254](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/unified-balance.service.ts#L254)
+
+***
 
 ### buildTransferERC20FromEoaTx()
 
@@ -1633,7 +1676,7 @@ const rawTx = buildTransferERC20FromEoaTx(txParams);
 
 #### Defined in
 
-[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/utils.service.ts#L127)
+[utils/utils.service.ts:127](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/utils.service.ts#L127)
 
 ***
 
@@ -1689,7 +1732,7 @@ console.log(usdcMapping);
 const balance = await getUnifiedBalance({
   mapping: usdcMapping,
   address: '0x...',
-  clients: { ... }
+  chainConfigs: [...]
 });
 ```
 
@@ -1699,7 +1742,7 @@ For using the created mapping, see the documentation for getUnifiedBalance.
 
 #### Defined in
 
-[utils/unified-balance.service.ts:45](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/unified-balance.service.ts#L45)
+[utils/unified-balance.service.ts:75](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/unified-balance.service.ts#L75)
 
 ***
 
@@ -1744,7 +1787,87 @@ const action = encodeAction([{ ... }, { ... }], 1);
 
 #### Defined in
 
-[utils/itx.service.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/itx.service.ts#L36)
+[utils/itx.service.ts:36](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/itx.service.ts#L36)
+
+***
+
+### encodeBridgingDataFromStrategy()
+
+> **encodeBridgingDataFromStrategy**(`options`): `Promise`\<`object`[]\>
+
+Encodes bridging data from a token strategy for multiple chains.
+
+This function takes a token strategy (typically generated by buildTokenStrategy) and encodes
+the necessary data for bridging tokens from multiple source chains to a single destination chain.
+It uses the provided encodeSingleBridgeData function to generate the specific bridging data for each chain.
+
+#### Parameters
+
+• **options**: `EncodeBridgingDataFromStrategyOptions`
+
+The options for encoding bridging data.
+
+#### Returns
+
+`Promise`\<`object`[]\>
+
+A promise that resolves to an array of RawTransaction objects,
+each containing the encoded bridging data for a single chain in the strategy.
+
+#### Throws
+
+Throws an error if the strategy is null, indicating no feasible strategy exists,
+or if a token address is not found for a chain in the strategy.
+
+#### Example
+
+```ts
+const tokenMapping = {
+  10: '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85',  // USDC on Optimism
+  8453: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913' // USDC on Base
+};
+
+const strategy = [
+  { chainId: 10, amount: BigInt("15000") },
+  { chainId: 8453, amount: BigInt("5000") }
+];
+
+const encodeSingleBridgeData = async (
+  tokenAddress,
+  sourceChainId,
+  destinationChainId,
+  amount,
+  multichainAddress
+) => {
+  // Implement your specific bridge encoding logic here
+  // This is just a placeholder implementation
+  return {
+    to: multichainAddress,
+    value: //
+    gasLimit: //
+    data: // Data encoded by your bridge encoding implementation
+  };
+};
+
+try {
+  const bridgingData = await encodeBridgingDataFromStrategy({
+    strategy,
+    tokenMapping,
+    destinationChainId: 1,  // Ethereum mainnet
+    multichainAddress: '0x1234567890123456789012345678901234567890',
+    encodeSingleBridgeData
+  });
+
+  console.log(bridgingData);
+  // Output will be an array of RawTransaction objects, one for each chain in the strategy
+} catch (error) {
+  console.error('Error encoding bridging data:', error.message);
+}
+```
+
+#### Defined in
+
+[utils/unified-balance.service.ts:435](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/unified-balance.service.ts#L435)
 
 ***
 
@@ -1781,7 +1904,7 @@ const iTx = encodeItx({ ... });
 
 #### Defined in
 
-[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/itx.service.ts#L19)
+[utils/itx.service.ts:19](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/itx.service.ts#L19)
 
 ***
 
@@ -1815,7 +1938,7 @@ const tx = encodeTx({ ... });
 
 #### Defined in
 
-[utils/itx.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/itx.service.ts#L53)
+[utils/itx.service.ts:53](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/itx.service.ts#L53)
 
 ***
 
@@ -1880,49 +2003,7 @@ This function is designed to work in a browser environment and requires
 
 #### Defined in
 
-[utils/utils.service.ts:47](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/utils.service.ts#L47)
-
-***
-
-### getPaymentToken()
-
-> **getPaymentToken**(`chainTokenPair`): `undefined` \| `string`
-
-Retrieves the payment token address for a given chain-token pair.
-
-This function uses the ChainTokenService to look up the token address
-based on the provided chain-token pair.
-
-#### Parameters
-
-• **chainTokenPair**: `"ethereum-eth"` \| `"ethereum-weth"` \| `"ethereum-link"` \| `"ethereum-usdc"` \| `"ethereum-wsteth"` \| `"ethereum-usdt"` \| `"ethereum-matic"` \| `"ethereum-wmatic"` \| `"ethereum-stmatic"` \| `"ethereum-avax"` \| `"ethereum-wavax"` \| `"ethereum-bnb"` \| `"ethereum-wbnb"` \| `"ethereum-axlusdc"` \| `"ethereum-crusdc"` \| `"ethereum-bsc-usd"` \| `"optimism-eth"` \| `"optimism-weth"` \| `"optimism-link"` \| `"optimism-usdc"` \| `"optimism-wsteth"` \| `"optimism-usdt"` \| `"optimism-matic"` \| `"optimism-wmatic"` \| `"optimism-stmatic"` \| `"optimism-avax"` \| `"optimism-wavax"` \| `"optimism-bnb"` \| `"optimism-wbnb"` \| `"optimism-axlusdc"` \| `"optimism-crusdc"` \| `"optimism-bsc-usd"` \| `"sepolia-eth"` \| `"sepolia-weth"` \| `"sepolia-link"` \| `"sepolia-usdc"` \| `"sepolia-wsteth"` \| `"sepolia-usdt"` \| `"sepolia-matic"` \| `"sepolia-wmatic"` \| `"sepolia-stmatic"` \| `"sepolia-avax"` \| `"sepolia-wavax"` \| `"sepolia-bnb"` \| `"sepolia-wbnb"` \| `"sepolia-axlusdc"` \| `"sepolia-crusdc"` \| `"sepolia-bsc-usd"` \| `"polygon-eth"` \| `"polygon-weth"` \| `"polygon-link"` \| `"polygon-usdc"` \| `"polygon-wsteth"` \| `"polygon-usdt"` \| `"polygon-matic"` \| `"polygon-wmatic"` \| `"polygon-stmatic"` \| `"polygon-avax"` \| `"polygon-wavax"` \| `"polygon-bnb"` \| `"polygon-wbnb"` \| `"polygon-axlusdc"` \| `"polygon-crusdc"` \| `"polygon-bsc-usd"` \| `"arbitrum-one-eth"` \| `"arbitrum-one-weth"` \| `"arbitrum-one-link"` \| `"arbitrum-one-usdc"` \| `"arbitrum-one-wsteth"` \| `"arbitrum-one-usdt"` \| `"arbitrum-one-matic"` \| `"arbitrum-one-wmatic"` \| `"arbitrum-one-stmatic"` \| `"arbitrum-one-avax"` \| `"arbitrum-one-wavax"` \| `"arbitrum-one-bnb"` \| `"arbitrum-one-wbnb"` \| `"arbitrum-one-axlusdc"` \| `"arbitrum-one-crusdc"` \| `"arbitrum-one-bsc-usd"` \| `"arbitrum-sepolia-eth"` \| `"arbitrum-sepolia-weth"` \| `"arbitrum-sepolia-link"` \| `"arbitrum-sepolia-usdc"` \| `"arbitrum-sepolia-wsteth"` \| `"arbitrum-sepolia-usdt"` \| `"arbitrum-sepolia-matic"` \| `"arbitrum-sepolia-wmatic"` \| `"arbitrum-sepolia-stmatic"` \| `"arbitrum-sepolia-avax"` \| `"arbitrum-sepolia-wavax"` \| `"arbitrum-sepolia-bnb"` \| `"arbitrum-sepolia-wbnb"` \| `"arbitrum-sepolia-axlusdc"` \| `"arbitrum-sepolia-crusdc"` \| `"arbitrum-sepolia-bsc-usd"` \| `"avalanche-c-chain-eth"` \| `"avalanche-c-chain-weth"` \| `"avalanche-c-chain-link"` \| `"avalanche-c-chain-usdc"` \| `"avalanche-c-chain-wsteth"` \| `"avalanche-c-chain-usdt"` \| `"avalanche-c-chain-matic"` \| `"avalanche-c-chain-wmatic"` \| `"avalanche-c-chain-stmatic"` \| `"avalanche-c-chain-avax"` \| `"avalanche-c-chain-wavax"` \| `"avalanche-c-chain-bnb"` \| `"avalanche-c-chain-wbnb"` \| `"avalanche-c-chain-axlusdc"` \| `"avalanche-c-chain-crusdc"` \| `"avalanche-c-chain-bsc-usd"` \| `"scroll-eth"` \| `"scroll-weth"` \| `"scroll-link"` \| `"scroll-usdc"` \| `"scroll-wsteth"` \| `"scroll-usdt"` \| `"scroll-matic"` \| `"scroll-wmatic"` \| `"scroll-stmatic"` \| `"scroll-avax"` \| `"scroll-wavax"` \| `"scroll-bnb"` \| `"scroll-wbnb"` \| `"scroll-axlusdc"` \| `"scroll-crusdc"` \| `"scroll-bsc-usd"` \| `"bnb-smart-chain-eth"` \| `"bnb-smart-chain-weth"` \| `"bnb-smart-chain-link"` \| `"bnb-smart-chain-usdc"` \| `"bnb-smart-chain-wsteth"` \| `"bnb-smart-chain-usdt"` \| `"bnb-smart-chain-matic"` \| `"bnb-smart-chain-wmatic"` \| `"bnb-smart-chain-stmatic"` \| `"bnb-smart-chain-avax"` \| `"bnb-smart-chain-wavax"` \| `"bnb-smart-chain-bnb"` \| `"bnb-smart-chain-wbnb"` \| `"bnb-smart-chain-axlusdc"` \| `"bnb-smart-chain-crusdc"` \| `"bnb-smart-chain-bsc-usd"` \| `"base-eth"` \| `"base-weth"` \| `"base-link"` \| `"base-usdc"` \| `"base-wsteth"` \| `"base-usdt"` \| `"base-matic"` \| `"base-wmatic"` \| `"base-stmatic"` \| `"base-avax"` \| `"base-wavax"` \| `"base-bnb"` \| `"base-wbnb"` \| `"base-axlusdc"` \| `"base-crusdc"` \| `"base-bsc-usd"`
-
-A string representing the chain and token,
-                                         in the format "chainName-tokenSymbol".
-                                         For example: "ethereum-usdc" or "arbitrumOne-link".
-
-#### Returns
-
-`undefined` \| `string`
-
-The address of the payment token if found,
-                              or undefined if the token is not found for the given chain.
-
-#### Throws
-
-May throw an error if the ChainTokenService encounters issues
-                (e.g., network errors when fetching data).
-
-#### Example
-
-```ts
-const usdcAddress = getPaymentToken('ethereum-usdc');
-console.log(usdcAddress); // '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
-```
-
-#### Defined in
-
-[utils/token-resolver.service.ts:267](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/token-resolver.service.ts#L267)
+[utils/utils.service.ts:47](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/utils.service.ts#L47)
 
 ***
 
@@ -1931,10 +2012,6 @@ console.log(usdcAddress); // '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48'
 > **getUnifiedBalance**(`params`): `Promise`\<`UnifiedBalanceResult`\>
 
 Fetches and aggregates token balances across multiple blockchains for a given address.
-
-This function retrieves the balance of a specific token (defined by the TokenMapping)
-for a given address across multiple chains. It then aggregates these balances into
-a single unified balance.
 
 #### Parameters
 
@@ -1946,15 +2023,13 @@ The parameters for the function.
 
 The address for which to fetch the token balances.
 
-• **params.clients**
+• **params.chainConfigs**: `ChainConfig`[]
 
-An object mapping chain IDs to viem PublicClient instances.
-  These clients are used to interact with the respective blockchains.
+An array of objects, each containing a chainId and an rpcUrl.
 
 • **params.mapping**: `TokenMapping`
 
 An object mapping chain IDs to token addresses.
-  Use the createTokenMapping function to generate this object.
 
 #### Returns
 
@@ -1967,22 +2042,13 @@ A promise that resolves to an object containing:
 #### Throws
 
 Throws an error in the following cases:
-  - If no client is provided for a chain ID in the mapping.
   - If tokens across different chains have different numbers of decimals.
   - If no valid tokens are found in the mapping.
 
 #### Example
 
 ```ts
-import { createPublicClient, http } from 'viem';
-import { mainnet, optimism } from 'viem/chains';
 import { createTokenMapping, getUnifiedBalance } from 'klaster-sdk';
-
-// Create public clients for each chain
-const clients = {
-  1: createPublicClient({ chain: mainnet, transport: http() }),
-  10: createPublicClient({ chain: optimism, transport: http() })
-};
 
 // Create a token mapping for USDC
 const usdcMapping = createTokenMapping([
@@ -1995,7 +2061,10 @@ try {
   const result = await getUnifiedBalance({
     mapping: usdcMapping,
     address: '0x063B3184a74C510b5c6f5bBd122CC19689E0c706',
-    clients
+    chainConfigs: [
+      { chainId: 1, rpcUrl: 'https://eth-mainnet.g.alchemy.com/v2/your-api-key' },
+      { chainId: 10, rpcUrl: 'https://opt-mainnet.g.alchemy.com/v2/your-api-key' }
+    ]
   });
   console.log(`Unified USDC Balance: ${result.amount} (${result.decimals} decimals)`);
 } catch (error) {
@@ -2003,14 +2072,9 @@ try {
 }
 ```
 
-#### See
-
- - For more information on creating token mappings, see the documentation for createTokenMapping.
- - For details on creating viem PublicClient instances, refer to the viem documentation: https://viem.sh/docs/clients/public.html
-
 #### Defined in
 
-[utils/unified-balance.service.ts:107](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/unified-balance.service.ts#L107)
+[utils/unified-balance.service.ts:130](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/unified-balance.service.ts#L130)
 
 ***
 
@@ -2057,7 +2121,39 @@ Throws an error if the provided configuration is invalid or if
 
 #### Defined in
 
-[index.ts:65](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/index.ts#L65)
+[index.ts:62](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/index.ts#L62)
+
+***
+
+### resolveToken()
+
+> **resolveToken**(`symbol`, `chainId`): `TokenInfo`
+
+Resolves a payment token based on its symbol and the chain ID.
+
+#### Parameters
+
+• **symbol**: [`PaymentTokenSymbol`](README.md#paymenttokensymbol)
+
+The symbol of the payment token to resolve.
+
+• **chainId**: `number`
+
+The ID of the blockchain network.
+
+#### Returns
+
+`TokenInfo`
+
+A promise that resolves to the token information.
+
+#### Throws
+
+If the token cannot be resolved for the given chain ID.
+
+#### Defined in
+
+[utils/token-resolver.service.ts:114](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/token-resolver.service.ts#L114)
 
 ***
 
@@ -2116,4 +2212,4 @@ This function is designed to work in a browser environment and requires
 
 #### Defined in
 
-[utils/utils.service.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/52050b3d5fce2921b820be9d0e1e05b64455118e/src/utils/utils.service.ts#L86)
+[utils/utils.service.ts:86](https://github.com/0xPolycode/klaster-sdk/blob/1f17e7ced490541b1f7944b66e5cd8a0899e68c4/src/utils/utils.service.ts#L86)
