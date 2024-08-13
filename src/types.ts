@@ -45,7 +45,7 @@ export interface ApiUserOp {
  * the gas cost and transaction fees will be processed. This determines the specific
  * blockchain where the payment transaction will occur.
  */
-export interface ApiPaymentData {
+export interface TxFeeParams {
   masterWallet: Address;
   salt: string;
   token: string;
@@ -137,7 +137,7 @@ export interface QuoteResponse {
   itxHash: `0x${string}`;
   commitment: string;
   node: Address;
-  paymentInfo: ApiPaymentData;
+  paymentInfo: TxFeeParams;
   userOps: ERC4337UserOp[];
 }
 
@@ -151,7 +151,7 @@ export interface QuoteResponse {
  * and can be used to track or reference the transaction's status and outcome across multiple chains.
  */
 export interface ExecuteResponse {
-  iTxHash: string;
+  itxHash: string;
 }
 
 /**
@@ -181,7 +181,7 @@ export interface ItxStatusResponse {
   itxHash: string;
   node: Address;
   commitment: string;
-  paymentInfo: ApiPaymentData & {
+  paymentInfo: TxFeeParams & {
     tokenAmount: string;
     tokenValue: string;
   };
@@ -190,28 +190,8 @@ export interface ItxStatusResponse {
 
 // Fully described Interchain Transaction model.
 export interface InterchainTransaction {
-  actions: ITxUserOp[];
-  paymentInfo: ApiPaymentData;
-}
-
-/**
- * Represents the minimal UserOperation required for a fully described Klaster Interchain Transaction model.
- * This interface defines the structure for actions that can be performed on a single chain within
- * a Klaster Interchain Transaction.
- *
- * @interface ITxUserOp
- * @property {RawTransaction[]} txs - An array of raw transactions to be executed on the specified chain.
- *   - If this array contains a single transaction, the 'execute' function will be called on the smart contract account.
- *   - If this array contains multiple transactions, the 'batchExecute' function will be called on the smart contract account.
- * @property {number} chainId - The identifier of the blockchain network on which the transaction(s) will be executed.
- * @property {number} [upperBoundTime] - Optional. The latest timestamp by which the transaction(s) should be executed.
- * @property {number} [lowerBoundTime] - Optional. The earliest timestamp at which the transaction(s) can be executed.
- */
-export interface ITxUserOp {
-  txs: RawTransaction[];
-  chainId: number;
-  upperBoundTime?: number;
-  lowerBoundTime?: number;
+  steps: TransactionBatch[];
+  feeTx: TxFeeParams;
 }
 
 /**
@@ -232,8 +212,8 @@ export interface ITxUserOp {
  */
 export interface RawTransaction {
   to: Address;
-  value: bigint;
-  data: string;
+  value?: bigint;
+  data?: string;
   gasLimit: bigint;
 }
 
@@ -279,3 +259,141 @@ export interface SupportedPaymentTokenInfo {
     }[];
   }[];
 }
+
+/**
+ * Represents a batch of transactions for a specific blockchain.
+ *
+ * @interface TxBatch
+ * @property {RawTransaction[]} txs - Array of raw transactions to be executed in this batch.
+ * @property {number} chainId - ID of the blockchain where these transactions will be executed.
+ * @property {number} [upperBoundTime] - Optional. Latest timestamp for executing the batch.
+ * @property {number} [lowerBoundTime] - Optional. Earliest timestamp for executing the batch.
+ */
+export interface TransactionBatch {
+  txs: RawTransaction[];
+  chainId: number;
+  upperBoundTime?: number;
+  lowerBoundTime?: number;
+}
+
+/**
+ * Represents a token amount required for a specific chain in a multichain action.
+ * This type is used by the SDK to calculate and specify the token amounts needed
+ * for executing parts of a multichain transaction on different blockchain networks.
+ *
+ * @typedef {Object} TokenUtilizationStrategyItem
+ * @property {number} chainId - The identifier of the blockchain network where the token
+ *   will be utilized. 
+ * @property {bigint} amount - The amount of tokens calculated by the SDK as necessary
+ *   for the operation on the specified chain. 
+ */
+export type TokenUtilizationStrategyItem = {
+  chainId: number;
+  amount: bigint;
+};
+
+/**
+ * RPC connection information for a specific blockchain.
+ *
+ * @typedef {Object} ChainRpcInfo
+ * @property {number} chainId - Unique identifier of the blockchain network.
+ * @property {string} rpcUrl - URL of the RPC endpoint for the specified blockchain.
+ */
+export type ChainRpcInfo = {
+  chainId: number;
+  rpcUrl: string;
+};
+
+/**
+ * Maps chain IDs to token addresses across multiple blockchains.
+ * 
+ * @typedef {Object.<number, Address>} MultichainTokenMapping
+ * @description An object where each key is a chain ID and the corresponding value
+ * is the deployed address of the token on that specific blockchain.
+ */
+export type MultichainTokenMapping = { chainId: number, address: Address }[]
+
+/**
+ * Represents a unified token balance across multiple blockchains.
+ * 
+ * @typedef {Object} UnifiedBalanceResult
+ * @property {bigint} balance - Total token balance summed across all chains.
+ * @property {number} decimals - Number of decimal places for the token.
+ * @property {Array<{chainId: number, amount: bigint}>} breakdown - Per-chain balance breakdown.
+ * @description Aggregates token balances from chains specified in MultichainTokenMapping.
+ * The balance is the total sum, while breakdown provides individual chain balances.
+ */
+export type UnifiedBalanceResult = {
+  balance: bigint;
+  decimals: number;
+  breakdown: { chainId: number, amount: bigint }[];
+};
+
+
+/**
+ * Represents information about a token on a specific blockchain.
+ * @typedef {Object} TokenInfo
+ * @property {number} chainId - The chainID of the specific blockchain
+ * @property {Address} address - The address of the token on the specified blockchain
+ */
+export type TokenInfo = {
+  chainId: number;
+  address: Address;
+};
+
+/**
+ * Represents a collection of token utilization strategies across chains, or null.
+ * 
+ * @typedef {TokenUtilizationStrategyItem[] | null} TokenUtilizationStrategyItems
+ * @description An array of TokenUtilizationStrategyItem, each specifying token amounts
+ * for different chains, or null if no strategy is defined.
+ */
+export type TokenUtilizationStrategyItems = TokenUtilizationStrategyItem[] | null;
+
+/**
+ * Represents the result of encoding a single bridge action.
+ * 
+ * @typedef {Object} BridgingDataEncoderResult
+ * @property {TransactionBatch} txBatch - Encoded transaction data for the bridge action.
+ * @property {bigint | null} receivedOnDestination - Expected amount received after bridging, or null if uncertain.
+ * @description Used to store the encoded transaction data and expected outcome for a bridge operation on a single blockchain.
+ */
+export type BridgingDataEncoderResult = {
+  txBatch: TransactionBatch;
+  receivedOnDestination: bigint | null;
+};
+
+/**
+ * Parameters for encoding a single bridge operation.
+ *
+ * @interface BridgingDataEncoderParams
+ * @property {Address} sourceToken - Address of the token on the source chain.
+ * @property {Address} destinationToken - Address of the token on the destination chain.
+ * @property {number} sourceChainId - ID of the source blockchain.
+ * @property {number} destinationChainId - ID of the destination blockchain.
+ * @property {bigint} amount - Amount of tokens to bridge.
+ * @property {Address} account - Address of the account initiating the bridge.
+ */
+export interface BridgingDataEncoderParams {
+  sourceToken: Address,
+  destinationToken: Address,
+  sourceChainId: number,
+  destinationChainId: number,
+  amount: bigint,
+  account: Address,
+}
+
+/**
+ * Function type for encoding data for a single bridge operation.
+ *
+ * @typedef {Function} BridgingDataEncoder
+ * @param {BridgingDataEncoderParams} data - Parameters for the bridge operation.
+ * @returns {Promise<BridgingDataEncoderResult>} A promise that resolves to the encoded bridge action result.
+ * @description Asynchronous function that takes bridge parameters and returns encoded transaction data and expected outcome.
+ */
+export type BridgingDataEncoder = (data: BridgingDataEncoderParams) => Promise<BridgingDataEncoderResult>;
+
+export type TokenUtilizationStrategyResult = {
+  steps: TransactionBatch[];
+  totalReceivedOnDestination: bigint;
+};

@@ -61,6 +61,7 @@ class ChainTokenService {
     const tokensForChain = this.data?.supported_gas_tokens.find(
       (x) => x.chainId === chainId.toString(),
     );
+    
     if (!tokensForChain) {
       throw Error(`No payment tokens found for chain ${chainId}. This may indicate that the node does not support
         ${chainId}`);

@@ -1,13 +1,13 @@
 import { Address } from "viem";
 import {
-  ApiPaymentData,
+  TxFeeParams,
   ApiUserOp,
   ExecuteResponse,
   ItxStatusResponse,
   QuoteResponse,
 } from "./types";
 import axios, { AxiosInstance } from "axios";
-import { parseKlasterNodeError } from "./utils/error.service";
+import { parseKlasterNodeError } from "./error.service";
 
 /**
  * Service class for interacting with a Klaster Node.
@@ -37,11 +37,11 @@ export class KlasterNodeService {
    * 
    * @async
    * @param {ApiUserOp[]} userOps - An array of user operations to get a quote for.
-   * @param {ApiPaymentData} paymentInfo - Payment information for the quote.
+   * @param {TxFeeParams} paymentInfo - Payment information for the quote.
    * @returns {Promise<QuoteResponse>} A promise that resolves to the quote response.
    * @throws {Error} Throws an error if the request fails, with a parsed error message.
    */
-  async getQuote(userOps: ApiUserOp[], paymentInfo: ApiPaymentData) {
+  async getQuote(userOps: ApiUserOp[], paymentInfo: TxFeeParams) {
     const mappedOps = userOps.map((userOp) => {
       return { ...userOp, chainId: userOp.chainId.toString() };
     });

@@ -1,15 +1,18 @@
 {
   "compilerOptions": {
-    "target": "es2017" /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */,
-    "module": "ESNext" /* Specify what module code is generated. */,
-    "esModuleInterop": true /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */,
-    "forceConsistentCasingInFileNames": true /* Ensure that casing is correct in imports. */,
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM"],
     "declaration": true,
-    "strict": true /* Enable all strict type-checking options. */,
+    "declarationMap": true,
+    "sourceMap": true,
     "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "removeComments": false,
-    "moduleResolution": "Bundler" /* Skip type checking all .d.ts files. */
+    "forceConsistentCasingInFileNames": true
   },
-  "exclude": ["./wagmi.config.ts", "./jest.config.ts", "./dist", "dist.d.ts"]
+  "exclude": ["./wagmi.config.ts", "./jest.config.ts", "./dist", "dist.d.ts", "./src/tests/"]
 }

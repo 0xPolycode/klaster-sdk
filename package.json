@@ -26,19 +26,19 @@
     "@wagmi/core": "2.12.2",
     "axios": "1.7.2",
     "lodash": "^4.17.21",
-    "viem": "2.15.1"
+    "viem": "2.18.4"
   },
   "scripts": {
     "build": "tsc",
     "prepublishOnly": "rm -rf ./dist && tsc && tsc --declaration --emitDeclarationOnly",
     "localPub": "rm -rf ./klaster-sdk-0.1.5.tgz && rm -rf ./dist && npm run build && npm pack",
     "lint": "eslint .",
-    "test": "jest",
+    "test": "jest --coverage",
     "make-docs": "typedoc --plugin typedoc-plugin-markdown --outputFileStrategy modules ./src"
   },
   "main": "dist/index.js",
   "name": "klaster-sdk",
-  "version": "0.4.8",
+  "version": "0.4.34",
   "type": "module",
   "description": "An SDK for interacting with the Klaster Protocol",
   "author": {

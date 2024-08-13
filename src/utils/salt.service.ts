@@ -34,23 +34,4 @@ export class SaltUtil {
     return i.toString();
   }
 
-  /**
-   * Allows for the use of a custom salt value.
-   * 
-   * This method provides flexibility for users who want to use their own salt values.
-   * 
-   * @param {string} salt - A custom salt value.
-   * @returns {string} The provided custom salt value.
-   * 
-   * @example
-   * const customSalt = SaltUtil.customAccount("mySuperUniqueValue");
-   * console.log(customSalt); // Outputs: "mySuperUniqueValue"
-   * 
-   * @remarks
-   * When using custom salts, ensure they are unique to avoid account collisions.
-   * Custom salts should be securely generated and managed to maintain account security.
-   */
-  public static customAccount(salt: string): string {
-    return salt;
-  }
 }

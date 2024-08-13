@@ -38,10 +38,12 @@ export class EncodingService {
     masterWallet: Address,
     salt: string,
   ): ApiUserOp {
+    const innerData = tx.data ?? ""
+
     const data = encodeFunctionData({
       abi: smartAccountAbi,
       functionName: "execute",
-      args: [tx.to, tx.value, tx.data as any],
+      args: [tx.to, tx.value ?? BigInt(0), innerData as any],
     });
 
     return {
@@ -83,13 +85,14 @@ export class EncodingService {
     masterWallet: Address,
     salt: string,
   ): ApiUserOp {
+   
     const data = encodeFunctionData({
       abi: smartAccountAbi,
       functionName: "executeBatch",
       args: [
         txs.map((tx) => tx.to),
-        txs.map((tx) => tx.value),
-        txs.map((tx) => tx.data as any),
+        txs.map((tx) => tx.value ?? BigInt(0)),
+        txs.map((tx) => (tx.data ?? "") as any),
       ],
     });
 

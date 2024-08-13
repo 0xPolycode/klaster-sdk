@@ -1,7 +1,7 @@
 import { Address } from "viem";
 import { KlasterNodeService } from "./node.service";
 import {
-  ApiPaymentData,
+  TxFeeParams,
   ExecuteResponse,
   InterchainTransaction,
   MultichainAccount,
@@ -10,16 +10,21 @@ import {
 } from "./types";
 import { EncodingService } from "./utils/encoding.service";
 import { SaltUtil } from "./utils/salt.service";
-import { buildTransferERC20FromEoaTx } from "./utils/utils.service";
-import { PaymentTokenSymbol, resolveToken } from "./utils/token-resolver.service";
+import { PaymentTokenSymbol, resolveToken } from "./utils/token-utils/token-resolver.service";
 
 export * from "./types";
 export * from "./utils/encoding.service";
 export * from "./utils/itx.service";
 export * from "./utils/salt.service";
-export * from "./utils/token-resolver.service";
-export * from "./utils/utils.service";
-export * from "./utils/unified-balance.service"
+export * from "./utils/token-utils/token-resolver.service";
+export * from './utils/token-utils/token-utilization-strategy.service'
+export * from './utils/token-utils/erc20-encoder.service'
+export * from './utils/constants/node-url.constants'
+export * from './utils/chains.service'
+export * from './utils/token-mapping.service'
+
+
+export { Address } from 'viem'
 
 /**
  * Configuration options for initializing the Klaster SDK.
@@ -59,8 +64,9 @@ export type Config = {
  *
  * @throws {Error} Throws an error if the provided configuration is invalid or if
  *   the SDK fails to initialize for any reason.
- */ export function initKlaster(config: Config) {
-  return new KlasterSDK(config);
+ */ 
+export async function initKlaster(config: Config) {
+  return await KlasterSDK.init(config)
 }
 
 /**
@@ -75,9 +81,27 @@ export class KlasterSDK {
 
   masterAddress: Address;
 
-  constructor(config: Config) {
+  // Multichain account can't be accessed until it's set since the constructor is set to private
+  // and the init function is async and will not return a value until a multichain account is set.
+  account!: MultichainAccount
+
+  private constructor(config: Config) {
     this.nodeService = new KlasterNodeService(config.nodeUrl);
     this.masterAddress = config.masterAddress;
+  }
+
+  public static async init(config: Config) {
+    const sdk = new KlasterSDK(config)
+    await sdk.initMultichainAccount()
+    return sdk
+  }
+
+  private async initMultichainAccount() {
+    const address = await this.nodeService.getWallet(this.masterAddress, this.activeAccountSalt)
+    this.account = {
+      address: address,
+      salt: this.activeAccountSalt
+    }
   }
 
   /**
@@ -104,8 +128,12 @@ export class KlasterSDK {
    * @see For more information on ERC4337 and account abstraction, visit:
    * {@link https://eips.ethereum.org/EIPS/eip-4337|EIP-4337: Account Abstraction}
    */
-  changeMasterAddress(wallet: Address) {
+  async changeMasterAddress(wallet: Address) {
     this.masterAddress = wallet;
+    this.account = {
+      address: await this.nodeService.getWallet(this.masterAddress, this.activeAccountSalt),
+      salt: this.activeAccountSalt
+    }
   }
 
   /**
@@ -133,56 +161,14 @@ export class KlasterSDK {
    * @see For more information on ERC4337 and account abstraction, visit:
    * {@link https://eips.ethereum.org/EIPS/eip-4337|EIP-4337: Account Abstraction}
    */
-  changeAccountSalt(salt: string) {
+  async changeAccountSalt(salt: string) {
     this.activeAccountSalt = salt;
+    this.account = {
+      address: await this.nodeService.getWallet(this.masterAddress, this.activeAccountSalt),
+      salt: this.activeAccountSalt
+    }
   }
 
-  /**
-   * Fetches the multichain ERC4337 account derived from the current masterWallet and salt.
-   *
-   * This asynchronous function retrieves the multichain smart contract account that is
-   * deterministically derived using the `masterWallet` and `salt` parameters set during
-   * SDK initialization or subsequently updated.
-   *
-   * The derived account is compliant with the ERC4337 standard for account abstraction
-   * and can be used across multiple blockchain networks.
-   *
-   * @async
-   * @returns {Promise<MultichainAccount>} A promise that resolves to a MultichainAccount object.
-   *   The object contains:
-   *   - salt: The current active account salt used for derivation.
-   *   - address: The derived multichain smart contract account address.
-   *
-   * @throws {Error} May throw an error if there's an issue communicating with the node service
-   *   or if the account derivation fails.
-   *
-   * @example
-   * // Assuming 'klasterSDK' is an initialized instance of the Klaster SDK
-   * try {
-   *   const account = await klasterSDK.getMultichainAccount();
-   *   console.log('Derived account:', account.address);
-   *   console.log('Used salt:', account.salt);
-   * } catch (error) {
-   *   console.error('Failed to fetch multichain account:', error);
-   * }
-   *
-   * @note This function uses the current values of `masterWallet` and `salt`. If you need
-   * to derive a different account, use `changeMasterAddress()` or `changeAccountSalt()`
-   * before calling this function.
-   *
-   * @see {@link changeMasterAddress} - To change the master wallet address.
-   * @see {@link changeAccountSalt} - To change the account salt.
-   */
-  async getMultichainAccount(): Promise<MultichainAccount> {
-    const multichainAccount = await this.nodeService.getWallet(
-      this.masterAddress,
-      this.activeAccountSalt,
-    );
-    return {
-      salt: this.activeAccountSalt,
-      address: multichainAccount,
-    };
-  }
 
   /**
    * A helper function that prepares an ApiPaymentData object for transaction fee payments.
@@ -198,7 +184,7 @@ export class KlasterSDK {
    * 
    * @param {number} chainId - The chainId of the chain on which you wish to execute the payment.
    *
-   * @returns {Promise<ApiPaymentData>} A promise that resolves to an ApiPaymentData object containing:
+   * @returns {Promise<TxFeeParams>} A promise that resolves to an ApiPaymentData object containing:
    *   - chainId: The chain ID where the payment will be processed
    *   - masterWallet: The address of the master wallet used in the SDK.
    *   - salt: The salt used for deriving the multichain account.
@@ -224,121 +210,50 @@ export class KlasterSDK {
    * @see {@link getMultichainAccount} - Used internally to fetch the current multichain account.
    * @see {@link getPaymentToken} - Used internally to resolve the token address from the ChainTokenPair.
    */
-  async encodeTxFee(paymentToken: PaymentTokenSymbol, chainId: number): Promise<ApiPaymentData> {
-    const account = await this.getMultichainAccount();
+  buildFeeTx(paymentToken: PaymentTokenSymbol, chainId: number): TxFeeParams {
+    const account = this.account
+
+    if(!account) {
+      throw Error('Invalid SDK state. Multichain account not fetched.')
+    }
 
     const tokenInfo = resolveToken(paymentToken, chainId)
 
     return {
-      chainId: 10,
+      chainId: chainId,
       masterWallet: this.masterAddress,
       salt: account.salt,
       token: tokenInfo.address,
     };
   }
 
-  /**
-   * Fetches a quote for the interchain transaction (iTx).
-   *
-   * This asynchronous function processes an InterchainTransaction object to obtain a quote
-   * from the Klaster Node. The quote contains the full iTx information as well as the
-   * required payment information for executing the transaction.
-   *
-   * @async
-   * @param {InterchainTransaction} itx - The full Interchain Transaction object. This object
-   *        should contain an array of actions and payment information.
-   *
-   * @returns {Promise<QuoteResponse>} A promise that resolves to a QuoteResponse object
-   *          containing the full iTx information and required payment details.
-   *
-   * @throws {Error} Throws an error if the actions array in the iTx is empty.
-   * @throws {Error} May throw errors from the EncodingService or the node service if there
-   *                 are issues encoding the actions or fetching the quote.
-   *
-   * @example
-   * const itx = {
-   *   actions: [
-   *     {
-   *       txs: [{ to: '0x...', value: 1000n, data: '0x...', gasLimit: 21000n }],
-   *       chainId: 1
-   *     }
-   *   ],
-   *   paymentInfo: { ... } // ApiPaymentData object
-   * };
-   *
-   * try {
-   *   const quote = await klasterSDK.getQuote(itx);
-   *   console.log('Received quote:', quote);
-   * } catch (error) {
-   *   console.error('Failed to get quote:', error);
-   * }
-   *
-   * @note This function uses the current values of `masterAddress` and `activeAccountSalt`
-   *       from the SDK instance for encoding user operations.
-   *
-   * @see {@link EncodingService.encodeUserOpCall} - Used for encoding single transaction actions.
-   * @see {@link EncodingService.encodeBatchCall} - Used for encoding multi-transaction actions.
-   */
+  /* istanbul ignore next @preserve */
   async getQuote(itx: InterchainTransaction) {
-    const actions = itx.actions;
-    if (actions.length === 0) {
-      throw Error(`An iTx cannot have an empty actions array.`);
+    const batches = itx.steps;
+    if (batches.length === 0) {
+      throw Error(`An iTx cannot have an empty batches array.`);
     }
 
-    const userOps = actions.map((action) => {
-      return action.txs.length === 1
+    const userOps = batches.map((batch) => {
+      return batch.txs.length === 1
         ? EncodingService.encodeUserOpCall(
-            action.txs[0],
-            action.chainId,
+            batch.txs[0],
+            batch.chainId,
             this.masterAddress,
             this.activeAccountSalt,
           )
         : EncodingService.encodeBatchCall(
-            action.txs,
-            action.chainId,
+            batch.txs,
+            batch.chainId,
             this.masterAddress,
             this.activeAccountSalt,
           );
     });
 
-    return await this.nodeService.getQuote(userOps, itx.paymentInfo);
+    return await this.nodeService.getQuote(userOps, itx.feeTx);
   }
 
-  /**
-   * Executes the Interchain Transaction (iTx) based on a quote response and signed hash.
-   *
-   * This function triggers the execution of an iTx on the Klaster network. Once called
-   * with a valid signed hash, the execution becomes irreversible.
-   *
-   * @async
-   * @param {QuoteResponse} response - The response object returned from calling the `quote`
-   *                                   endpoint. This contains necessary information for execution.
-   * @param {string} signedHash - The iTx hash, signed by the wallet using the personalSign method.
-   *
-   * @returns {Promise<ExecuteResponse>} A promise that resolves to an ExecuteResponse object
-   *                                     containing the iTx hash of the executed transaction.
-   *
-   * @throws {Error} May throw an error if the execution fails, if the signed hash is invalid,
-   *                 or if there are network issues.
-   *
-   * @remarks
-   * IMPORTANT: The hash must be signed using the personalSign method.
-   * If you encounter an "invalid merkle hash" error, ensure you're using the correct
-   * signing method. Some libraries may default to a different signing scheme.
-   *
-   * @example
-   * try {
-   *   const quoteResponse = await klasterSDK.getQuote(...);
-   *   const signedHash = await wallet.personalSign(quoteResponse.hash);
-   *   const executeResponse = await klasterSDK.execute(quoteResponse, signedHash);
-   *   console.log('Execution successful. iTx hash:', executeResponse.iTxHash);
-   * } catch (error) {
-   *   console.error('Execution failed:', error);
-   * }
-   *
-   * @see {@link getQuote} - Used to obtain the necessary QuoteResponse.
-   * @see {@link https://eips.ethereum.org/EIPS/eip-191} - EIP-191 for signed data standard.
-   */
+  /* istanbul ignore next @preserve */
   async execute(
     response: QuoteResponse,
     signedHash: string,
@@ -401,90 +316,5 @@ export class KlasterSDK {
     const quote = await this.getQuote(itx);
     const signedHash = await signHash(quote.itxHash);
     return await this.execute(quote, signedHash);
-  }
-
-  /**
-   * Transfers ERC20 tokens to the multichain smart contract account and
-   * executes the desired actions across multiple blockchains.
-   *
-   * This function performs two main operations:
-   * 1. Transfers ERC20 tokens to the smart contract account.
-   * 2. Executes an interchain transaction (iTx) after the transfer is confirmed.
-   *
-   * @async
-   * @param {Object} params - The parameters object containing transfer and execution instructions.
-   * @param {Object} params.transferToSmartAccount - Instructions for transferring ERC20 tokens to the smart account.
-   * @param {Address} params.transferToSmartAccount.tokenToTransfer - The address of the ERC20 token to transfer.
-   * @param {bigint} params.transferToSmartAccount.amountToTransfer - The amount of tokens to transfer.
-   * @param {number} params.transferToSmartAccount.chainId - The ID of the blockchain where the transfer will occur.
-   * @param {Function} params.transferToSmartAccount.executeTxAction - A function to execute the transfer transaction.
-   *        It should take a RawTransaction object and return a Promise that resolves when the transaction is accepted.
-   *
-   * @param {Object} params.executeItx - Instructions for executing the interchain transaction.
-   * @param {InterchainTransaction} params.executeItx.iTx - The interchain transaction object to be executed.
-   * @param {Function} params.executeItx.signItxHashAction - A function to sign the iTx hash.
-   *        It should take an Address (the iTx hash) and return a Promise resolving to the signed hash string.
-   *
-   * @returns {Promise<ExecuteResponse>} A promise that resolves to the execution response of the iTx.
-   *
-   * @throws {Error} May throw errors during the token transfer, quote fetching, signing, or execution phases.
-   *
-   * @example
-   * const result = await klasterSDK.transferAndExecute({
-   *   transferToSmartAccount: {
-   *     tokenToTransfer: '0x...',  // ERC20 token address
-   *     amountToTransfer: BigInt(1000000),  // Amount in smallest unit
-   *     chainId: 1,  // Ethereum mainnet
-   *     executeTxAction: async (tx) => {
-   *       // Implement your transaction execution logic here
-   *       await yourProvider.sendTransaction(tx);
-   *     }
-   *   },
-   *   executeItx: {
-   *     iTx: {
-   *       // Your interchain transaction object
-   *     },
-   *     signItxHashAction: async (hash) => {
-   *       // Implement your signing logic here
-   *       return await yourSigner.signMessage(hash);
-   *     }
-   *   }
-   * });
-   *
-   * @remarks
-   * - The `executeTxAction` function should handle the actual sending of the transfer transaction to the blockchain.
-   *   Consult the Klaster documentation for details on implementing this with your specific provider.
-   * - The `signItxHashAction` function should handle the signing of the iTx hash.
-   *   Ensure you're using the correct signing method as specified in the Klaster documentation.
-   * - This function will wait for the transfer transaction to be accepted before proceeding with the iTx execution.
-   *
-   * @see Klaster documentation for detailed information on implementing `executeTxAction` and `signItxHashAction`.
-   * @see {@link buildTransferERC20FromEoaTx} - Used internally to construct the transfer transaction.
-   * @see {@link getQuote} - Used internally to fetch the quote for the iTx.
-   * @see {@link execute} - Used internally to execute the iTx.
-   */
-  async transferAndExecute(params: {
-    transferToSmartAccount: {
-      tokenToTransfer: Address;
-      amountToTransfer: bigint;
-      chainId: number;
-      executeTxAction: (tx: RawTransaction) => Promise<void>;
-    };
-    executeItx: {
-      iTx: InterchainTransaction;
-      signItxHashAction: (hash: Address) => Promise<string>;
-    };
-  }) {
-    const multichainAcc = await this.getMultichainAccount();
-    const transferTx = buildTransferERC20FromEoaTx({
-      token: params.transferToSmartAccount.tokenToTransfer,
-      amount: params.transferToSmartAccount.amountToTransfer,
-      chainId: params.transferToSmartAccount.chainId,
-      recipient: multichainAcc.address,
-    });
-    await params.transferToSmartAccount.executeTxAction(transferTx);
-    const quote = await this.getQuote(params.executeItx.iTx);
-    const signed = await params.executeItx.signItxHashAction(quote.itxHash);
-    return await this.execute(quote, signed);
   }
 }
