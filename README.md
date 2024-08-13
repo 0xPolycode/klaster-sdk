@@ -1,3 +1,5 @@
+![cover](https://pbs.twimg.com/profile_banners/1701927316270510080/1718974595/1500x500)
+
 # Klaster SDK
 
 Klaster SDK enables easy interaction with the Klaster Protocol. With the Klaster SDK, you are able to easily
