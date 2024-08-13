@@ -10,3 +10,4 @@ build chain abstracted flows and applications. Some of the functionalities incud
 Check out an example of a chain abstracted app made with Klaster
 https://www.loom.com/embed/e226679dc2c2494bbbf4e880937e3037?sid=f06dd2f5-376b-475d-a5e0-1548c255356f
 
+Follow us on X: https://x.com/klaster_io
