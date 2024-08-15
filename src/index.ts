@@ -22,7 +22,7 @@ export * from './utils/token-utils/erc20-encoder.service'
 export * from './utils/constants/node-url.constants'
 export * from './utils/chains.service'
 export * from './utils/token-mapping.service'
-
+export * from './utils/constants/common-tokens.constants'
 
 export { Address } from 'viem'
 
