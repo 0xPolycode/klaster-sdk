@@ -11,6 +11,7 @@ import {
   UnifiedBalanceResult,
 } from "../types";
 import { defineCustomChain } from "./custom-chain.service";
+import { MultichainAccount } from "../accounts/account.service";
 
 export class MultichainClient {
   chainsRpcInfo: ChainRpcInfo[];
@@ -21,10 +22,10 @@ export class MultichainClient {
 
   async getUnifiedErc20Balance({
     tokenMapping,
-    address,
+    account,
   }: {
     tokenMapping: MultichainTokenMapping;
-    address: Address;
+    account: MultichainAccount;
   }): Promise<UnifiedBalanceResult> {
 
     tokenMapping.forEach(deployment => {
@@ -69,6 +70,14 @@ export class MultichainClient {
     const results = await Promise.all(
       erc20Contracts.map(async (bundle) => {
         try {
+          const address = account.getAddress(bundle.chainId)
+          if(!address) {
+            throw new Error(
+              `Couldn't fetch account address for chainId ${bundle.chainId}.
+              Most likely, the Smart Contract account provider you chose doesn't
+              support ${bundle.chainId}`
+            )
+          }
           const balance = await bundle.contract.read.balanceOf([address]);
           const decimals = await bundle.contract.read.decimals();
           return {

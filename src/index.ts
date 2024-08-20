@@ -6,14 +6,13 @@ import {
   InterchainTransaction,
   QuoteResponse,
   RawTransaction,
+  MultichainTokenMapping,
 } from "./types";
-import { EncodingService } from "./utils/encoding.service";
+import { encodeSmartAccountCall } from "./utils/encoding.service";
 import { SaltUtil } from "./utils/salt.service";
-import {
-  PaymentTokenSymbol,
-  resolveToken,
-} from "./utils/token-utils/token-resolver.service";
 import { AccountInitData, MultichainAccount } from "./accounts/account.service";
+import { sepolia } from "viem/chains";
+import { PaymentTokenSymbol, resolveToken } from "./utils/token-utils/token-resolver.service";
 
 export * from "./types";
 export * from "./utils/encoding.service";
@@ -26,6 +25,9 @@ export * from "./utils/constants/node-url.constants";
 export * from "./utils/chains.service";
 export * from "./utils/token-mapping.service";
 export * from "./utils/constants/common-tokens.constants";
+export * from './accounts/account.service'
+export * from './accounts/account-vendors/biconomy.account'
+export * from './accounts/account-vendors/safe.account'
 
 export { Address } from "viem";
 
@@ -47,22 +49,23 @@ export class KlasterSDK<T extends AccountInitData<Object>> {
 
   // Multichain account can't be accessed until it's set since the constructor is set to private
   // and the init function is async and will not return a value until a multichain account is set.
-  account!: MultichainAccount<T>;
+  account!: MultichainAccount;
 
   private constructor(config: Config<T>) {
     this.nodeService = new KlasterNodeService(config.nodeUrl);
     this.accountInitData = config.accountInitData;
   }
 
-  public static async init(config: Config) {
+  public static async init<T extends AccountInitData<Object>>(config: Config<T>) {
     const sdk = new KlasterSDK(config);
     await sdk.initMultichainAccount();
     return sdk;
   }
 
   private async initMultichainAccount() {
-    // TODO: Fill with real data
-    this.account = new MultichainAccount(this.accountInitData, []);
+    const accountData = await this.nodeService.getWallet(this.accountInitData.accountProviderId, 
+      this.accountInitData.encodeAccountCreationFactoryData())
+    this.account = new MultichainAccount(accountData.multichainAccount, this.accountInitData);
   }
 
   async getQuote(itx: InterchainTransaction) {
@@ -78,22 +81,18 @@ export class KlasterSDK<T extends AccountInitData<Object>> {
           `Smart contract account not avaialble on chain ${batch.chainId}. Account data: ${this.accountInitData}`,
         );
       }
-      return batch.txs.length === 1
-        ? EncodingService.encodeUserOpCall(
-            batch.txs[0],
-            batch.chainId,
-            address,
-            this.activeAccountSalt,
-          )
-        : EncodingService.encodeBatchCall(
-            batch.txs,
-            batch.chainId,
-            address,
-            this.activeAccountSalt,
-          );
+      return encodeSmartAccountCall(batch.chainId, batch.txs)
     });
 
-    return await this.nodeService.getQuote(userOps, itx.feeTx);
+    return await this.nodeService.getQuote(this.account, userOps, itx.feeTx)
+  }
+
+  encodePaymentFee(chainId: number, token: PaymentTokenSymbol): TxFeeParams {
+    const tokenInfo = resolveToken(token, chainId)
+    return {
+      chainId: chainId,
+      token: tokenInfo.address
+    }
   }
 
   async execute(

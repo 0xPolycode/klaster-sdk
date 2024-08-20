@@ -4,13 +4,13 @@ import {
   TokenUtilizationStrategyItem,
   ChainRpcInfo,
   MultichainTokenMapping,
-  BridgingDataEncoder,
+  BridgePlugin,
   TokenUtilizationStrategyResult,
   UnifiedBalanceResult,
 } from "../../types";
 import { MultichainClient } from "../chains.service";
 import { getTokenAddressForChainId } from "../token-mapping.service";
-
+import { MultichainAccount } from "../../accounts/account.service";
 
 function calculateTokenUtilizationStrategy(
   sortedBalances: Array<{ chainId: number; balance: bigint; decimals: number }>,
@@ -40,19 +40,19 @@ export class TokenUtilizationStrategy {
   steps: TokenUtilizationStrategyItems;
   tokenMapping: MultichainTokenMapping;
   chainRpcsInfo: ChainRpcInfo[];
-  account: Address;
+  account: MultichainAccount;
   destinationChainBalance: bigint;
   destinationChainId: number;
-  totalAmount: bigint
+  totalAmount: bigint;
 
   constructor(
     steps: TokenUtilizationStrategyItems,
     tokenMapping: MultichainTokenMapping,
     chainRpcsInfo: ChainRpcInfo[],
-    account: Address,
+    account: MultichainAccount,
     destinationChainBalance: bigint,
     destinationChainId: number,
-    totalAmount: bigint
+    totalAmount: bigint,
   ) {
     this.steps = steps;
     this.tokenMapping = tokenMapping;
@@ -60,11 +60,11 @@ export class TokenUtilizationStrategy {
     this.account = account;
     this.destinationChainBalance = destinationChainBalance;
     this.destinationChainId = destinationChainId;
-    this.totalAmount = totalAmount
+    this.totalAmount = totalAmount;
   }
 
   async encode(
-    encodeSingleBridgeData: BridgingDataEncoder,
+    encodeSingleBridgeData: BridgePlugin,
   ): Promise<TokenUtilizationStrategyResult> {
     if (!this.steps) {
       throw Error(`Token strategy is null. This indicates that there is no feasible strategy to execute your 
@@ -72,16 +72,21 @@ export class TokenUtilizationStrategy {
     }
 
     // If destination chain has enough balance, don't calculate any bridging strategies
-    if(this.destinationChainBalance > this.totalAmount) {
+    if (this.destinationChainBalance > this.totalAmount) {
       return {
         steps: [],
-        totalReceivedOnDestination: this.totalAmount
-      }
+        totalReceivedOnDestination: this.totalAmount,
+      };
     }
 
-    const destinationToken = getTokenAddressForChainId(this.tokenMapping, this.destinationChainId)
-    if(!destinationToken) {
-      throw new Error(`Token mapping doesn't contain token on chainId: ${this.destinationChainId}`)
+    const destinationToken = getTokenAddressForChainId(
+      this.tokenMapping,
+      this.destinationChainId,
+    );
+    if (!destinationToken) {
+      throw new Error(
+        `Token mapping doesn't contain token on chainId: ${this.destinationChainId}`,
+      );
     }
 
     const bridgingTxs = await Promise.all(
@@ -91,7 +96,10 @@ export class TokenUtilizationStrategy {
           return chainId !== this.destinationChainId;
         })
         .map(async ({ chainId, amount }) => {
-          const sourceToken = getTokenAddressForChainId(this.tokenMapping, chainId)
+          const sourceToken = getTokenAddressForChainId(
+            this.tokenMapping,
+            chainId,
+          );
           if (!sourceToken) {
             throw new Error(
               `Token mapping doesn't contain token on chainId: ${this.destinationChainId}`,
@@ -122,8 +130,7 @@ export class TokenUtilizationStrategy {
 
     return {
       steps: bridgingTxs.map((x) => x.txBatch),
-      totalReceivedOnDestination:
-        totalOuputFromEncodedTxs,
+      totalReceivedOnDestination: totalOuputFromEncodedTxs,
     };
   }
 }
@@ -134,31 +141,37 @@ export async function prepareStrategy({
   amount,
   account,
   destinationChainId,
-  unifiedBalance
+  unifiedBalance,
 }: {
   tokenMapping: MultichainTokenMapping;
   client: MultichainClient;
   amount: bigint;
-  account: Address;
+  account: MultichainAccount;
   destinationChainId: number;
-  unifiedBalance?: UnifiedBalanceResult
+  unifiedBalance?: UnifiedBalanceResult;
 }): Promise<TokenUtilizationStrategy> {
   // Fetch balances for all chains
 
-  const balance = unifiedBalance ?? await client.getUnifiedErc20Balance({
-    tokenMapping: tokenMapping,
-    address: account
-  })
-  const balances = balance.breakdown
+  const balance =
+    unifiedBalance ??
+    (await client.getUnifiedErc20Balance({
+      tokenMapping: tokenMapping,
+      account: account,
+    }));
+  const balances = balance.breakdown;
 
-  if(amount < 0) {
-    throw Error(`Expected destinationamount for encoding bridigng actions can't be negative. Got ${amount}`)
+  if (amount < 0) {
+    throw Error(
+      `Expected destinationamount for encoding bridigng actions can't be negative. Got ${amount}`,
+    );
   }
 
-  const destChainBalance = balances.find(balance => balance.chainId === destinationChainId)
-  if(!destChainBalance) {
+  const destChainBalance = balances.find(
+    (balance) => balance.chainId === destinationChainId,
+  );
+  if (!destChainBalance) {
     throw new Error(`Dest chain (chainId: ${destinationChainId}) balance is undefined.
-      Available balances: ${balances.map(x => `[${x.chainId}, ${x.amount}]`)}`)
+      Available balances: ${balances.map((x) => `[${x.chainId}, ${x.amount}]`)}`);
   }
 
   const nonDestChainBalances = balances.filter(
@@ -172,12 +185,12 @@ export async function prepareStrategy({
 
   // Calculate token utilization
   const tokenUtilizationSteps = calculateTokenUtilizationStrategy(
-    sortedBalances.map(signleBalance => {
+    sortedBalances.map((signleBalance) => {
       return {
         balance: signleBalance.amount,
         chainId: signleBalance.chainId,
-        decimals: balance.decimals
-      }
+        decimals: balance.decimals,
+      };
     }),
     amount - destChainBalance.amount,
   );
@@ -189,26 +202,26 @@ export async function prepareStrategy({
     account,
     destChainBalance.amount,
     destChainBalance.chainId,
-    amount
+    amount,
   );
 }
 
-export async function calculateMultibridgeData({
+export async function encodeBridgingOps({
   tokenMapping,
   client,
   amount,
   account,
   destinationChainId,
-  encodingFunction,
-  unifiedBalance
+  bridgePlugin,
+  unifiedBalance,
 }: {
   tokenMapping: MultichainTokenMapping;
   client: MultichainClient;
   amount: bigint;
-  account: Address;
+  account: MultichainAccount;
   destinationChainId: number;
-  encodingFunction: BridgingDataEncoder;
-  unifiedBalance?: UnifiedBalanceResult
+  bridgePlugin: BridgePlugin;
+  unifiedBalance?: UnifiedBalanceResult;
 }): Promise<TokenUtilizationStrategyResult> {
   const strategy = await prepareStrategy({
     tokenMapping,
@@ -216,13 +229,13 @@ export async function calculateMultibridgeData({
     amount,
     account,
     destinationChainId,
-    unifiedBalance
+    unifiedBalance,
   });
-  return await strategy.encode(encodingFunction);
+  return await strategy.encode(bridgePlugin);
 }
 
 export function buildBridgingEncoder(
-  encoder: BridgingDataEncoder,
-): BridgingDataEncoder {
+  encoder: BridgePlugin,
+): BridgePlugin {
   return encoder;
 }

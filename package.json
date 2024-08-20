@@ -38,7 +38,7 @@
   },
   "main": "dist/index.js",
   "name": "klaster-sdk",
-  "version": "0.4.34",
+  "version": "0.5.2",
   "type": "module",
   "description": "An SDK for interacting with the Klaster Protocol",
   "author": {
