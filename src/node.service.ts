@@ -45,10 +45,10 @@ export class KlasterNodeService {
     }
   }
 
-  async executeTx(quoteResponse: QuoteResponse, signedHash: string): Promise<ExecuteResponse> {
-    const request = { ...quoteResponse, signature: signedHash };
+  async executeTx(quoteResponse: QuoteResponse, signedHash: string, walletProvider: string): Promise<ExecuteResponse> {
+    const request = { ...quoteResponse, signature: signedHash, walletProvider: walletProvider};
     try {
-      const response = await this.client.post("execute", request);
+      const response = await this.client.post("execute-generic", request);
       return response.data;
     } catch (e: any) {
       throw Error(parseKlasterNodeError(e));

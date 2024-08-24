@@ -58,7 +58,7 @@ describe("Should initialize SDK with an account provider", () => {
   });
 });
 
-describe("Should encode a TX", () => {
+describe("Should encode an iTx and get a quote", () => {
   test("Safe provider", async () => {
     const sdk = await prepareSDK("safe");
     const iTx = buildItx({

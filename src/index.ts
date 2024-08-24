@@ -99,7 +99,8 @@ export class KlasterSDK<T extends AccountInitData<Object>> {
     response: QuoteResponse,
     signedHash: string,
   ): Promise<ExecuteResponse> {
-    return await this.nodeService.executeTx(response, signedHash);
+    const walletProvider = this.accountInitData.accountProviderId
+    return await this.nodeService.executeTx(response, signedHash, walletProvider);
   }
 
   async autoExecute(
