@@ -13,17 +13,19 @@ export interface TxFeeParams {
 }
 
 export interface ERC4337UserOp {
-  sender: Address;
-  nonce: string;
-  initCode: string;
-  callData: string;
-  callGasLimit: string;
-  verificationGasLimit: string;
-  preVerificationGas: string;
-  maxFeePerGas: string;
-  maxPriorityFeePerGas: string;
-  paymasterAndData: string;
-  signature: string;
+  userOp: {
+    sender: Address;
+    nonce: string;
+    initCode: string;
+    callData: string;
+    callGasLimit: string;
+    verificationGasLimit: string;
+    preVerificationGas: string;
+    maxFeePerGas: string;
+    maxPriorityFeePerGas: string;
+    paymasterAndData: string;
+    signature: string;
+  };
 }
 
 export interface ExecutedAction {
@@ -38,7 +40,8 @@ export interface ExecutedAction {
 }
 
 export interface QuoteResponse {
-  itxHash: `0x${string}`;
+  walletProvider: string,
+  itxHash: Hex;
   commitment: string;
   node: Address;
   paymentInfo: TxFeeParams;
@@ -116,12 +119,12 @@ export type ChainRpcInfo = {
   rpcUrl: string;
 };
 
-export type MultichainTokenMapping = { chainId: number, address: Address }[]
+export type MultichainTokenMapping = { chainId: number; address: Address }[];
 
 export type UnifiedBalanceResult = {
   balance: bigint;
   decimals: number;
-  breakdown: { chainId: number, amount: bigint }[];
+  breakdown: { chainId: number; amount: bigint }[];
 };
 
 export type TokenInfo = {
@@ -129,7 +132,9 @@ export type TokenInfo = {
   address: Address;
 };
 
-export type TokenUtilizationStrategyItems = TokenUtilizationStrategyItem[] | null;
+export type TokenUtilizationStrategyItems =
+  | TokenUtilizationStrategyItem[]
+  | null;
 
 export type BridgePluginResult = {
   txBatch: TransactionBatch;
@@ -137,15 +142,17 @@ export type BridgePluginResult = {
 };
 
 export interface BridgePluginParams {
-  sourceToken: Address,
-  destinationToken: Address,
-  sourceChainId: number,
-  destinationChainId: number,
-  amount: bigint,
-  account: MultichainAccount,
+  sourceToken: Address;
+  destinationToken: Address;
+  sourceChainId: number;
+  destinationChainId: number;
+  amount: bigint;
+  account: MultichainAccount;
 }
 
-export type BridgePlugin = (data: BridgePluginParams) => Promise<BridgePluginResult>;
+export type BridgePlugin = (
+  data: BridgePluginParams,
+) => Promise<BridgePluginResult>;
 
 export type TokenUtilizationStrategyResult = {
   steps: TransactionBatch[];

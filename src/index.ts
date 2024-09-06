@@ -1,4 +1,4 @@
-import { Address } from "viem";
+import { Address, Hex } from "viem";
 import { KlasterNodeService } from "./node.service";
 import {
   TxFeeParams,
@@ -99,13 +99,12 @@ export class KlasterSDK<T extends AccountInitData<Object>> {
     response: QuoteResponse,
     signedHash: string,
   ): Promise<ExecuteResponse> {
-    const walletProvider = this.accountInitData.accountProviderId
-    return await this.nodeService.executeTx(response, signedHash, walletProvider);
+    return await this.nodeService.executeTx(response, signedHash);
   }
 
   async autoExecute(
     itx: InterchainTransaction,
-    signHash: (hash: `0x${string}`) => Promise<string>,
+    signHash: (hash: Hex) => Promise<string>,
   ) {
     const quote = await this.getQuote(itx);
     const signedHash = await signHash(quote.itxHash);

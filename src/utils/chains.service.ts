@@ -1,10 +1,4 @@
-import {
-  Address,
-  createPublicClient,
-  erc20Abi,
-  getContract,
-  http,
-} from "viem";
+import { Address, createPublicClient, erc20Abi, getContract, http } from "viem";
 import {
   ChainRpcInfo,
   MultichainTokenMapping,
@@ -27,19 +21,23 @@ export class MultichainClient {
     tokenMapping: MultichainTokenMapping;
     account: MultichainAccount;
   }): Promise<UnifiedBalanceResult> {
-
-    tokenMapping.forEach(deployment => {
-      if(!this.chainsRpcInfo.find(info => info.chainId === deployment.chainId)) {
+    tokenMapping.forEach((deployment) => {
+      if (
+        !this.chainsRpcInfo.find((info) => info.chainId === deployment.chainId)
+      ) {
         throw Error(`The multichain readonly client you provided does not support ${deployment.chainId}
-          required by the tokenMapping you're using.`)
+          required by the tokenMapping you're using.`);
       }
-    })
-    
+    });
+
     // Filter only RPCs for tokens present in the mapping. E.g. if a project uses chains X, Y and Z, but
     // the tokenMapping only has chains X and Y - then skip the balance call for chain Z
-    const filteredRpcs = this.chainsRpcInfo.filter(rpcInfo =>
-      tokenMapping.find(deployment => deployment.chainId === rpcInfo.chainId) !== undefined
-    )
+    const filteredRpcs = this.chainsRpcInfo.filter(
+      (rpcInfo) =>
+        tokenMapping.find(
+          (deployment) => deployment.chainId === rpcInfo.chainId,
+        ) !== undefined,
+    );
 
     // Fetch contract instances from all blockchains provided in the chainsConfig
     const erc20Contracts = filteredRpcs
@@ -51,10 +49,13 @@ export class MultichainClient {
         });
       })
       .map((client) => {
-        const tokenAddress = tokenMapping
-          .find(deployment => deployment.chainId === client.chain.id)?.address
-        if(!tokenAddress) {
-          throw new Error(`Token mapping doesn't cotain a token on ${client.chain.id}`)
+        const tokenAddress = tokenMapping.find(
+          (deployment) => deployment.chainId === client.chain.id,
+        )?.address;
+        if (!tokenAddress) {
+          throw new Error(
+            `Token mapping doesn't cotain a token on ${client.chain.id}`,
+          );
         }
         return {
           contract: getContract({
@@ -70,13 +71,13 @@ export class MultichainClient {
     const results = await Promise.all(
       erc20Contracts.map(async (bundle) => {
         try {
-          const address = account.getAddress(bundle.chainId)
-          if(!address) {
+          const address = account.getAddress(bundle.chainId);
+          if (!address) {
             throw new Error(
               `Couldn't fetch account address for chainId ${bundle.chainId}.
               Most likely, the Smart Contract account provider you chose doesn't
-              support ${bundle.chainId}`
-            )
+              support ${bundle.chainId}`,
+            );
           }
           const balance = await bundle.contract.read.balanceOf([address]);
           const decimals = await bundle.contract.read.decimals();
@@ -85,16 +86,22 @@ export class MultichainClient {
             decimals: decimals,
             chainId: bundle.chainId,
           };
-        } catch(e){
-          throw new Error(`
+        } catch (e) {
+          throw new Error(
+            `
             Unified balance error. Unable to fetch balance on chainId: ${bundle.chainId}. 
-          ` + '\n' + `${e}`)
+          ` +
+              "\n" +
+              `${e}`,
+          );
         }
       }),
     );
 
-    if(results.length === 0) {
-      throw Error('Fetching balanceOf and/or decimals failed in getUnifiedBalance')
+    if (results.length === 0) {
+      throw Error(
+        "Fetching balanceOf and/or decimals failed in getUnifiedBalance",
+      );
     }
     // Add up all the balances. Throw error if some tokens have a different number of decimals
     const totalAmount = results
@@ -123,6 +130,28 @@ export class MultichainClient {
       }),
     };
   }
+
+  async getUnifiedNativeBalance({ account }: { account: MultichainAccount }) {
+    const balances = await Promise.all(
+      this.chainsRpcInfo.map(async (chainRpc) => {
+        const chain = defineCustomChain(chainRpc.chainId, chainRpc.rpcUrl);
+        const client = createPublicClient({
+          transport: http(chainRpc.rpcUrl),
+          chain: chain,
+        });
+        const address = account.getAddress(chainRpc.chainId);
+        if (!address) {
+          return BigInt(0);
+        }
+        return await client.getBalance({
+          address: address,
+        });
+      }),
+    );
+    return balances.reduce((curr, acc) => {
+      return curr + acc;
+    }, BigInt(0));
+  }
 }
 
 export function buildMultichainReadonlyClient(config: ChainRpcInfo[]) {
@@ -132,6 +161,6 @@ export function buildMultichainReadonlyClient(config: ChainRpcInfo[]) {
 export function buildRpcInfo(chainId: number, rpcUrl: string): ChainRpcInfo {
   return {
     chainId: chainId,
-    rpcUrl: rpcUrl
-  }
+    rpcUrl: rpcUrl,
+  };
 }
